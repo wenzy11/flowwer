@@ -16,6 +16,7 @@ npm run dev
    - Google → **Enabled**
 2. **Authentication** → Settings → **Authorized domains**:
    - `localhost` ekli olmalı (geliştirme için)
+   - Tarayıcıda **`http://localhost:3000`** kullanın (`127.0.0.1` varsayılan olarak yetkili değildir; kullanacaksanız Console’a `127.0.0.1` ekleyin)
 3. Google Sign-In için OAuth consent screen yapılandırılmış olmalı
 
 ## Dosyalar
@@ -30,6 +31,11 @@ npm run dev
 - Service account JSON’u **asla** repoya commit etme.
 - Anahtar sohbette paylaşıldıysa Firebase Console’dan **yeni key** üret ve eskisini sil.
 
-## Not
+## Firestore indeksleri
 
-Her kullanıcı şu an aynı SQLite DB’yi paylaşır; kullanıcı başına veri ayrımı sonraki adım.
+İlk sorguda “requires an index” hatası alırsanız:
+
+1. Hata mesajındaki linke tıklayıp indeksi oluşturun (birkaç dakika sürebilir), **veya**
+2. `firestore.indexes.json` dosyasını Firebase CLI ile deploy edin: `firebase deploy --only firestore:indexes`
+
+Uygulama çoğu listeyi indeks olmadan da çalıştıracak şekilde sıralamayı bellek içinde yapar; yine de production için indeksleri oluşturmanız önerilir.

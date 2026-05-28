@@ -122,6 +122,28 @@ function quotesCollection(userId: string) {
   return userDoc(userId).collection("quotes");
 }
 
+function createdAtMillis(value: unknown): number {
+  if (!value) return 0;
+  if (typeof value === "string") return Date.parse(value) || 0;
+  if (value instanceof Date) return value.getTime();
+  if (typeof value === "object" && value !== null && "toDate" in value) {
+    return (value as { toDate: () => Date }).toDate().getTime();
+  }
+  if (typeof value === "object" && value !== null && "seconds" in value) {
+    return Number((value as { seconds: number }).seconds) * 1000;
+  }
+  return 0;
+}
+
+function sortDocsByCreatedAtDesc<T extends { get: (field: string) => unknown }>(
+  docs: T[]
+): T[] {
+  return [...docs].sort(
+    (a, b) =>
+      createdAtMillis(b.get("created_at")) - createdAtMillis(a.get("created_at"))
+  );
+}
+
 function settingsDoc(userId: string) {
   return userDoc(userId).collection("company").doc("settings");
 }
@@ -137,12 +159,10 @@ async function nextDocumentNumber(userId: string, type: DocumentType): Promise<s
 
   const snapshot = await quotesCollection(userId)
     .where("document_type", "==", type)
-    .orderBy("created_at", "desc")
-    .limit(200)
     .get();
 
   let maxSeq = 0;
-  for (const doc of snapshot.docs) {
+  for (const doc of sortDocsByCreatedAtDesc(snapshot.docs).slice(0, 200)) {
     const quoteNumber = String(doc.get("quote_number") ?? "");
     if (!quoteNumber.startsWith(prefix)) continue;
     const seq = parseInt(quoteNumber.replace(prefix, ""), 10);
@@ -159,14 +179,18 @@ export async function listQuotes(
   userId: string,
   documentType?: DocumentType
 ): Promise<(Quote & { clientName: string })[]> {
-  let query = quotesCollection(userId).orderBy("created_at", "desc");
-  if (documentType) {
-    query = query.where("document_type", "==", documentType) as typeof query;
-  }
+  const snapshot = documentType
+    ? await quotesCollection(userId)
+        .where("document_type", "==", documentType)
+        .get()
+    : await quotesCollection(userId).orderBy("created_at", "desc").get();
 
-  const snapshot = await query.get();
+  const docs = documentType
+    ? sortDocsByCreatedAtDesc(snapshot.docs)
+    : snapshot.docs;
+
   const out: (Quote & { clientName: string })[] = [];
-  for (const doc of snapshot.docs) {
+  for (const doc of docs) {
     const data = doc.data() as Record<string, unknown>;
     const client = await getClient(String(data.client_id), userId);
     out.push({
@@ -293,11 +317,10 @@ async function findInvoiceForEstimateInternal(
   const snapshot = await quotesCollection(userId)
     .where("document_type", "==", "invoice")
     .where("source_estimate_id", "==", estimateId)
-    .orderBy("created_at", "desc")
-    .limit(1)
     .get();
-  if (snapshot.empty) return null;
-  const doc = snapshot.docs[0]!;
+  const sorted = sortDocsByCreatedAtDesc(snapshot.docs);
+  if (!sorted.length) return null;
+  const doc = sorted[0]!;
   const row = doc.data() as Record<string, unknown>;
   const client = await getClient(String(row.client_id), userId);
   return {

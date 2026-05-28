@@ -8,6 +8,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 
+import { resolveAuthError } from "@/lib/auth/resolve-auth-error";
 import { establishServerSession } from "@/lib/auth/session-client";
 import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase/client";
 import { useRouter } from "@/i18n/navigation";
@@ -53,11 +54,7 @@ export function LoginForm({ locale }: LoginFormProps) {
       await signInWithEmailAndPassword(getFirebaseAuth(), email, password);
       await finishSignIn();
     } catch (err: unknown) {
-      const code =
-        err && typeof err === "object" && "code" in err
-          ? String((err as { code: string }).code)
-          : "unknown";
-      setError(t(`errors.${code}` as "errors.unknown") || t("errors.unknown"));
+      setError(resolveAuthError(err, t));
     } finally {
       setPending(false);
     }
@@ -70,13 +67,7 @@ export function LoginForm({ locale }: LoginFormProps) {
       await signInWithPopup(getFirebaseAuth(), new GoogleAuthProvider());
       await finishSignIn();
     } catch (err: unknown) {
-      const code =
-        err && typeof err === "object" && "code" in err
-          ? String((err as { code: string }).code)
-          : "unknown";
-      if (code !== "auth/popup-closed-by-user") {
-        setError(t("errors.unknown"));
-      }
+      setError(resolveAuthError(err, t));
     } finally {
       setPending(false);
     }

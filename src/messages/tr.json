@@ -357,7 +357,13 @@
       "auth/invalid-credential": "E-posta veya şifre hatalı.",
       "auth/email-already-in-use": "Bu e-posta zaten kayıtlı.",
       "auth/weak-password": "Şifre en az 6 karakter olmalı.",
-      "auth/too-many-requests": "Çok fazla deneme. Biraz bekleyin."
+      "auth/too-many-requests": "Çok fazla deneme. Biraz bekleyin.",
+      "auth/unauthorized-domain": "Bu adres Firebase'de yetkili değil. http://localhost:3000 kullanın veya Firebase Console → Authorized domains'e ekleyin.",
+      "auth/popup-blocked": "Tarayıcı açılır pencereyi engelledi. İzin verip tekrar deneyin.",
+      "auth/operation-not-allowed": "Google girişi Firebase Console'da kapalı. Authentication → Sign-in method'tan açın.",
+      "sessionFailed": "Oturum oluşturulamadı. Sayfayı yenileyip tekrar deneyin.",
+      "sessionInvalid": "Oturum doğrulanamadı. FIREBASE_ADMIN_* değerlerini kontrol edin.",
+      "adminNotConfigured": "Sunucu Firebase Admin ayarları eksik (.env.local)."
     }
   },
   "language": {
