@@ -5,6 +5,7 @@ export async function establishServerSession(idToken: string) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ idToken }),
+    credentials: "same-origin",
   });
   if (!res.ok) {
     const data = (await res.json().catch(() => ({}))) as { error?: string };
@@ -13,5 +14,5 @@ export async function establishServerSession(idToken: string) {
 }
 
 export async function clearServerSession() {
-  await fetch("/api/auth/session", { method: "DELETE" });
+  await fetch("/api/auth/session", { method: "DELETE", credentials: "same-origin" });
 }

@@ -4,10 +4,24 @@ type AuthTranslator = (
 ) => string;
 
 const SERVER_ERROR_KEYS: Record<string, string> = {
-  "Invalid token": "errors.sessionInvalid",
-  "Firebase Admin not configured": "errors.adminNotConfigured",
+  admin_not_configured: "errors.adminNotConfigured",
+  admin_key_invalid: "errors.adminKeyInvalid",
+  invalid_token: "errors.sessionInvalid",
+  missing_id_token: "errors.sessionFailed",
   session_failed: "errors.sessionFailed",
-  Missing: "errors.sessionFailed",
+  no_user: "errors.sessionFailed",
+};
+
+const FIREBASE_ERROR_KEYS: Record<string, string> = {
+  "auth/invalid-credential": "errors.invalidCredential",
+  "auth/email-already-in-use": "errors.emailAlreadyInUse",
+  "auth/weak-password": "errors.weakPassword",
+  "auth/too-many-requests": "errors.tooManyRequests",
+  "auth/unauthorized-domain": "errors.unauthorizedDomain",
+  "auth/popup-blocked": "errors.popupBlocked",
+  "auth/operation-not-allowed": "errors.operationNotAllowed",
+  "auth/internal-error": "errors.sessionFailed",
+  "auth/network-request-failed": "errors.networkFailed",
 };
 
 export function resolveAuthError(
@@ -17,8 +31,8 @@ export function resolveAuthError(
   if (err && typeof err === "object" && "code" in err) {
     const code = String((err as { code: string }).code);
     if (code === "auth/popup-closed-by-user") return null;
-    const message = t(`errors.${code}`);
-    if (message !== `errors.${code}`) return message;
+    const key = FIREBASE_ERROR_KEYS[code];
+    if (key) return t(key);
   }
 
   if (err instanceof Error) {

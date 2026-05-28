@@ -39,3 +39,39 @@ npm run dev
 2. `firestore.indexes.json` dosyasını Firebase CLI ile deploy edin: `firebase deploy --only firestore:indexes`
 
 Uygulama çoğu listeyi indeks olmadan da çalıştıracak şekilde sıralamayı bellek içinde yapar; yine de production için indeksleri oluşturmanız önerilir.
+
+## Vercel (production)
+
+Local çalışıp Vercel’de “Something went wrong” görüyorsanız, genelde **sunucu tarafı Firebase Admin** veya **yetkili domain** eksiktir.
+
+### 1. Vercel Environment Variables
+
+Project → Settings → Environment Variables — **Production + Preview** için hepsini ekleyin:
+
+| Değişken | Not |
+|----------|-----|
+| `NEXT_PUBLIC_FIREBASE_*` (6 adet) | `.env.local` ile aynı |
+| `FIREBASE_ADMIN_PROJECT_ID` | Service account |
+| `FIREBASE_ADMIN_CLIENT_EMAIL` | Service account |
+| `FIREBASE_ADMIN_PRIVATE_KEY` | Tek satır, `\n` ile satır sonları (tırnak **olmadan** yapıştırın) |
+
+**Alternatif (önerilen):** Tüm service account JSON’unu tek değişkende:
+
+- `FIREBASE_SERVICE_ACCOUNT_JSON` = indirdiğiniz `.json` dosyasının **tam içeriği** (tek satır da olabilir)
+
+Bu durumda `FIREBASE_ADMIN_*` üçlüsü gerekmez.
+
+Deploy sonrası kontrol: `https://SIZIN-VERCEL-URL/api/auth/health`  
+`{"ok":true,"adminInit":"ok"}` dönmeli.
+
+### 2. Firebase Authorized domains
+
+Authentication → Settings → Authorized domains:
+
+- `flowwer-wine.vercel.app` (production)
+- `*.vercel.app` eklenemez — her preview URL’yi ayrı eklemeniz veya production domain kullanmanız gerekir
+- Özel domain varsa onu da ekleyin
+
+### 3. Redeploy
+
+Env değiştirdikten sonra Vercel’de **Redeploy** şart (sadece kaydetmek yetmez).

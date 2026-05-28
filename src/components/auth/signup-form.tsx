@@ -9,8 +9,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 
+import { finishClientSignIn } from "@/lib/auth/finish-client-sign-in";
 import { resolveAuthError } from "@/lib/auth/resolve-auth-error";
-import { establishServerSession } from "@/lib/auth/session-client";
 import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase/client";
 import { useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
@@ -39,11 +39,7 @@ export function SignupForm({ locale }: SignupFormProps) {
   }
 
   async function finishSignIn() {
-    const auth = getFirebaseAuth();
-    const user = auth.currentUser;
-    if (!user) throw new Error("no_user");
-    const idToken = await user.getIdToken();
-    await establishServerSession(idToken);
+    await finishClientSignIn(getFirebaseAuth());
     router.push("/dashboard");
     router.refresh();
   }

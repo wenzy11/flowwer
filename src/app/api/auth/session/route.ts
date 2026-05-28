@@ -7,17 +7,43 @@ import {
 } from "@/lib/auth/firebase-server";
 import { isFirebaseAdminConfigured } from "@/lib/firebase/admin";
 
+function classifySessionError(err: unknown): string {
+  const msg = err instanceof Error ? err.message : String(err);
+  const lower = msg.toLowerCase();
+
+  if (
+    lower.includes("private key") ||
+    lower.includes("decoder") ||
+    lower.includes("invalid pem") ||
+    lower.includes("credentials") ||
+    lower.includes("must provide") ||
+    lower.includes("not configured")
+  ) {
+    return "admin_key_invalid";
+  }
+
+  if (
+    lower.includes("expired") ||
+    lower.includes("id token") ||
+    lower.includes("token")
+  ) {
+    return "invalid_token";
+  }
+
+  return "session_failed";
+}
+
 export async function POST(request: NextRequest) {
   if (!isFirebaseAdminConfigured()) {
     return NextResponse.json(
-      { error: "Firebase Admin not configured" },
+      { error: "admin_not_configured" },
       { status: 500 }
     );
   }
 
   const { idToken } = (await request.json()) as { idToken?: string };
   if (!idToken) {
-    return NextResponse.json({ error: "Missing idToken" }, { status: 400 });
+    return NextResponse.json({ error: "missing_id_token" }, { status: 400 });
   }
 
   try {
@@ -32,8 +58,11 @@ export async function POST(request: NextRequest) {
       path: opts.path,
     });
     return response;
-  } catch {
-    return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+  } catch (err) {
+    console.error("[auth/session]", err);
+    const error = classifySessionError(err);
+    const status = error === "admin_key_invalid" ? 500 : 401;
+    return NextResponse.json({ error }, { status });
   }
 }
 

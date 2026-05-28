@@ -354,16 +354,18 @@
     "firebaseNotConfigured": "Firebase is not configured. Check .env.local",
     "errors": {
       "unknown": "Something went wrong. Try again.",
-      "auth/invalid-credential": "Invalid email or password.",
-      "auth/email-already-in-use": "Email already in use.",
-      "auth/weak-password": "Password must be at least 6 characters.",
-      "auth/too-many-requests": "Too many attempts. Wait a moment.",
-      "auth/unauthorized-domain": "This host is not authorized in Firebase. Use http://localhost:3000 or add it under Authorized domains.",
-      "auth/popup-blocked": "The browser blocked the sign-in popup. Allow popups and try again.",
-      "auth/operation-not-allowed": "Google sign-in is disabled in Firebase Console (Authentication → Sign-in method).",
+      "invalidCredential": "Invalid email or password.",
+      "emailAlreadyInUse": "Email already in use.",
+      "weakPassword": "Password must be at least 6 characters.",
+      "tooManyRequests": "Too many attempts. Wait a moment.",
+      "unauthorizedDomain": "This host is not authorized in Firebase. Add your Vercel URL under Authentication → Authorized domains.",
+      "popupBlocked": "The browser blocked the sign-in popup. Allow popups and try again.",
+      "operationNotAllowed": "Google sign-in is disabled in Firebase Console (Authentication → Sign-in method).",
+      "networkFailed": "Network error. Check your connection and try again.",
       "sessionFailed": "Could not create a session. Refresh and try again.",
-      "sessionInvalid": "Session verification failed. Check FIREBASE_ADMIN_* in .env.local.",
-      "adminNotConfigured": "Firebase Admin is not configured on the server (.env.local)."
+      "sessionInvalid": "Session verification failed. Check server Firebase Admin env on Vercel.",
+      "adminNotConfigured": "Firebase Admin is not configured on the server (Vercel env variables).",
+      "adminKeyInvalid": "Firebase Admin private key is invalid on the server. Re-paste FIREBASE_ADMIN_PRIVATE_KEY or use FIREBASE_SERVICE_ACCOUNT_JSON on Vercel."
     }
   },
   "language": {
