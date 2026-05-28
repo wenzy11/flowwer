@@ -365,7 +365,9 @@
       "sessionFailed": "Oturum oluşturulamadı. Sayfayı yenileyip tekrar deneyin.",
       "sessionInvalid": "Oturum doğrulanamadı. Vercel'deki Firebase Admin env değişkenlerini kontrol edin.",
       "adminNotConfigured": "Sunucuda Firebase Admin ayarları eksik (Vercel env).",
-      "adminKeyInvalid": "Sunucudaki Firebase Admin private key geçersiz. Vercel'de FIREBASE_ADMIN_PRIVATE_KEY veya FIREBASE_SERVICE_ACCOUNT_JSON'u yeniden yapıştırın."
+      "adminKeyInvalid": "Sunucudaki Firebase Admin private key geçersiz. Vercel'de FIREBASE_ADMIN_PRIVATE_KEY veya FIREBASE_SERVICE_ACCOUNT_JSON'u yeniden yapıştırın.",
+      "firebaseCode": "Giriş hatası: {code}",
+      "projectMismatch": "Vercel'de Firebase proje ID uyuşmuyor. NEXT_PUBLIC_FIREBASE_* değerlerini FIREBASE_ADMIN_PROJECT_ID ile aynı yapıp yeniden deploy edin."
     }
   },
   "language": {

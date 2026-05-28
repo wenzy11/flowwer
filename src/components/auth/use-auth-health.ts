@@ -7,6 +7,7 @@ export type AuthHealth = {
   clientConfigured?: boolean;
   adminConfigured?: boolean;
   adminInit?: string;
+  projectMatch?: boolean;
 };
 
 export function useAuthHealth() {

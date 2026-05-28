@@ -1,4 +1,3 @@
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 import {
@@ -36,6 +35,12 @@ function classifySessionError(err: unknown): string {
   return "session_failed";
 }
 
+function isProductionHost() {
+  return (
+    process.env.NODE_ENV === "production" || Boolean(process.env.VERCEL)
+  );
+}
+
 export async function POST(request: NextRequest) {
   if (!isFirebaseAdminConfigured()) {
     return NextResponse.json(
@@ -55,16 +60,17 @@ export async function POST(request: NextRequest) {
 
     const sessionCookie = await createFirebaseSessionCookie(idToken);
     const opts = sessionCookieOptions();
-    const cookieStore = await cookies();
-    cookieStore.set(opts.name, sessionCookie, {
+    const response = NextResponse.json({ success: true });
+
+    response.cookies.set(opts.name, sessionCookie, {
       httpOnly: opts.httpOnly,
-      secure: opts.secure,
+      secure: isProductionHost(),
       sameSite: opts.sameSite,
       maxAge: opts.maxAge,
       path: opts.path,
     });
 
-    return NextResponse.json({ success: true });
+    return response;
   } catch (err) {
     console.error("[auth/session]", err);
     const error = classifySessionError(err);

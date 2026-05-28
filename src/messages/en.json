@@ -365,7 +365,9 @@
       "sessionFailed": "Could not create a session. Refresh and try again.",
       "sessionInvalid": "Session verification failed. Check server Firebase Admin env on Vercel.",
       "adminNotConfigured": "Firebase Admin is not configured on the server (Vercel env variables).",
-      "adminKeyInvalid": "Firebase Admin private key is invalid on the server. Re-paste FIREBASE_ADMIN_PRIVATE_KEY or use FIREBASE_SERVICE_ACCOUNT_JSON on Vercel."
+      "adminKeyInvalid": "Firebase Admin private key is invalid on the server. Re-paste FIREBASE_ADMIN_PRIVATE_KEY or use FIREBASE_SERVICE_ACCOUNT_JSON on Vercel.",
+      "firebaseCode": "Sign-in error: {code}",
+      "projectMismatch": "Firebase project mismatch on Vercel. Redeploy after setting NEXT_PUBLIC_FIREBASE_* (build-time) to match FIREBASE_ADMIN_PROJECT_ID."
     }
   },
   "language": {

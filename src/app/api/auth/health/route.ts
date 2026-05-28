@@ -4,10 +4,11 @@ import { getAdminAuth, isFirebaseAdminConfigured } from "@/lib/firebase/admin";
 import { loadAdminCredentialParts } from "@/lib/firebase/admin-credentials";
 
 export async function GET() {
+  const clientProjectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID?.trim();
   const clientConfigured = Boolean(
     process.env.NEXT_PUBLIC_FIREBASE_API_KEY &&
       process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN &&
-      process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
+      clientProjectId
   );
 
   if (!isFirebaseAdminConfigured()) {
@@ -16,17 +17,24 @@ export async function GET() {
       clientConfigured,
       adminConfigured: false,
       adminInit: "missing_env",
+      projectMatch: false,
     });
   }
 
   try {
-    loadAdminCredentialParts();
+    const { projectId: adminProjectId } = loadAdminCredentialParts();
     getAdminAuth();
+    const projectMatch =
+      Boolean(clientProjectId) && clientProjectId === adminProjectId;
+
     return NextResponse.json({
-      ok: true,
+      ok: projectMatch,
       clientConfigured,
       adminConfigured: true,
       adminInit: "ok",
+      projectMatch,
+      clientProjectId: clientProjectId ?? null,
+      adminProjectId,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "unknown";
@@ -41,6 +49,7 @@ export async function GET() {
       clientConfigured,
       adminConfigured: true,
       adminInit,
+      projectMatch: false,
     });
   }
 }

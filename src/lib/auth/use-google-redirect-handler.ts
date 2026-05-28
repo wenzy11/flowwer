@@ -4,9 +4,17 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 
 import { finishClientSignIn } from "@/lib/auth/finish-client-sign-in";
-import { completeGoogleRedirectIfNeeded } from "@/lib/auth/google-sign-in";
-import { redirectAfterSignIn } from "@/lib/auth/redirect-after-sign-in";
+import {
+  clearGoogleRedirectPending,
+  completeGoogleRedirectIfNeeded,
+  wasGoogleRedirectPending,
+} from "@/lib/auth/google-sign-in";
+import {
+  readLoginRedirectTarget,
+  redirectAfterSignIn,
+} from "@/lib/auth/redirect-after-sign-in";
 import { resolveAuthError } from "@/lib/auth/resolve-auth-error";
+import { waitForFirebaseUser } from "@/lib/auth/wait-for-firebase-user";
 import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase/client";
 
 type UseGoogleRedirectHandlerOptions = {
@@ -26,21 +34,32 @@ export function useGoogleRedirectHandler({
   useEffect(() => {
     if (!isFirebaseConfigured() || processingRef.current) return;
 
+    const pendingRedirect = wasGoogleRedirectPending();
+    if (!pendingRedirect) return;
+
     let active = true;
 
     (async () => {
       try {
         const auth = getFirebaseAuth();
         const redirectResult = await completeGoogleRedirectIfNeeded(auth);
-        if (!redirectResult || !active) return;
+        const user =
+          redirectResult?.user ??
+          auth.currentUser ??
+          (await waitForFirebaseUser(auth, 12000).catch(() => null));
+
+        clearGoogleRedirectPending();
+
+        if (!user || !active) return;
 
         processingRef.current = true;
         setPending(true);
         setError(null);
 
-        await finishClientSignIn(auth, redirectResult.user);
-        redirectAfterSignIn(locale);
+        await finishClientSignIn(auth, user);
+        redirectAfterSignIn(locale, readLoginRedirectTarget());
       } catch (err: unknown) {
+        clearGoogleRedirectPending();
         processingRef.current = false;
         if (active) setError(resolveAuthError(err, t));
         if (active) setPending(false);
@@ -50,6 +69,6 @@ export function useGoogleRedirectHandler({
     return () => {
       active = false;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per mount; locale is stable for this page
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per mount
   }, [locale]);
 }

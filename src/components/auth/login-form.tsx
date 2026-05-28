@@ -6,7 +6,10 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { finishClientSignIn } from "@/lib/auth/finish-client-sign-in";
 import { signInWithGoogle } from "@/lib/auth/google-sign-in";
-import { redirectAfterSignIn } from "@/lib/auth/redirect-after-sign-in";
+import {
+  readLoginRedirectTarget,
+  redirectAfterSignIn,
+} from "@/lib/auth/redirect-after-sign-in";
 import { resolveAuthError } from "@/lib/auth/resolve-auth-error";
 import { useGoogleRedirectHandler } from "@/lib/auth/use-google-redirect-handler";
 import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase/client";
@@ -39,7 +42,7 @@ export function LoginForm({ locale }: LoginFormProps) {
 
   async function finishSignIn() {
     await finishClientSignIn(getFirebaseAuth());
-    redirectAfterSignIn(locale);
+    redirectAfterSignIn(locale, readLoginRedirectTarget());
   }
 
   async function handleEmailLogin(e: React.FormEvent) {
@@ -59,8 +62,7 @@ export function LoginForm({ locale }: LoginFormProps) {
     setError(null);
     setPending(true);
     try {
-      const cred = await signInWithGoogle(getFirebaseAuth());
-      if (!cred) return;
+      await signInWithGoogle(getFirebaseAuth());
       await finishSignIn();
     } catch (err: unknown) {
       setError(resolveAuthError(err, t));
@@ -70,12 +72,14 @@ export function LoginForm({ locale }: LoginFormProps) {
 
   const serverIssue =
     health && !health.ok
-      ? health.adminInit === "missing_env" ||
-        health.adminInit === "invalid_private_key"
-        ? t("errors.adminKeyInvalid")
-        : health.adminInit === "fetch_failed"
-          ? t("errors.networkFailed")
-          : t("errors.adminNotConfigured")
+      ? health.projectMatch === false
+        ? t("errors.projectMismatch")
+        : health.adminInit === "missing_env" ||
+            health.adminInit === "invalid_private_key"
+          ? t("errors.adminKeyInvalid")
+          : health.adminInit === "fetch_failed"
+            ? t("errors.networkFailed")
+            : t("errors.adminNotConfigured")
       : null;
 
   return (

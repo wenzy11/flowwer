@@ -25,6 +25,8 @@ const FIREBASE_ERROR_KEYS: Record<string, string> = {
   "auth/cancelled-popup-request": "errors.popupBlocked",
   "auth/account-exists-with-different-credential": "errors.invalidCredential",
   "auth/user-disabled": "errors.invalidCredential",
+  "auth/redirect-operation-pending": "errors.sessionFailed",
+  "auth/web-storage-unsupported": "errors.popupBlocked",
 };
 
 export function resolveAuthError(
@@ -36,11 +38,17 @@ export function resolveAuthError(
     if (code === "auth/popup-closed-by-user") return null;
     const key = FIREBASE_ERROR_KEYS[code];
     if (key) return t(key);
+    if (code.startsWith("auth/")) {
+      return t("errors.firebaseCode", { code });
+    }
   }
 
   if (err instanceof Error) {
     const mapped = SERVER_ERROR_KEYS[err.message];
     if (mapped) return t(mapped);
+    if (err.message && err.message !== "Error") {
+      return t("errors.firebaseCode", { code: err.message });
+    }
   }
 
   return t("errors.unknown");

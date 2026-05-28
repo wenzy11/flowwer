@@ -4,16 +4,11 @@ import {
   GoogleAuthProvider,
   getRedirectResult,
   signInWithPopup,
-  signInWithRedirect,
   type Auth,
   type UserCredential,
 } from "firebase/auth";
 
-export function shouldUseGoogleRedirect(): boolean {
-  if (typeof window === "undefined") return false;
-  const host = window.location.hostname;
-  return host !== "localhost" && host !== "127.0.0.1";
-}
+export const GOOGLE_REDIRECT_PENDING_KEY = "qf_google_redirect_pending";
 
 export function createGoogleProvider() {
   const provider = new GoogleAuthProvider();
@@ -21,17 +16,23 @@ export function createGoogleProvider() {
   return provider;
 }
 
-export async function signInWithGoogle(auth: Auth): Promise<UserCredential | null> {
-  const provider = createGoogleProvider();
-  if (shouldUseGoogleRedirect()) {
-    await signInWithRedirect(auth, provider);
-    return null;
-  }
-  return signInWithPopup(auth, provider);
+/** Popup is more reliable than redirect on Vercel (no getRedirectResult race). */
+export async function signInWithGoogle(auth: Auth): Promise<UserCredential> {
+  return signInWithPopup(auth, createGoogleProvider());
 }
 
 export async function completeGoogleRedirectIfNeeded(
   auth: Auth
 ): Promise<UserCredential | null> {
   return getRedirectResult(auth);
+}
+
+export function wasGoogleRedirectPending(): boolean {
+  if (typeof window === "undefined") return false;
+  return sessionStorage.getItem(GOOGLE_REDIRECT_PENDING_KEY) === "1";
+}
+
+export function clearGoogleRedirectPending() {
+  if (typeof window === "undefined") return;
+  sessionStorage.removeItem(GOOGLE_REDIRECT_PENDING_KEY);
 }
