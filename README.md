@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QuoteFlow
+
+Minimalist construction estimating and quoting micro-SaaS for independent contractors — inspired by **Joist** and **Jobber** workflows (item catalog, client CRM, 4-step quotes, markup/tax, PDF export, quote status tracking).
+
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS v4** + **Shadcn UI**
+- **SQLite** (local `data/quoteflow.db` — works out of the box)
+- **@react-pdf/renderer** — professional quote PDFs
+- **next-intl** — 5 languages (EN, TR, ES, DE, FR)
+- **Lucide Icons**
+- Supabase auth (planned — Step 2)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) — redirects to `/en` by default.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Languages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Code | Language |
+|------|----------|
+| `en` | English (default) |
+| `tr` | Türkçe |
+| `es` | Español |
+| `de` | Deutsch |
+| `fr` | Français |
 
-## Learn More
+Use the language switcher in the sidebar (desktop) or header (mobile). URLs are locale-prefixed, e.g. `/tr/dashboard`.
 
-To learn more about Next.js, take a look at the following resources:
+## Features (working)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Item catalog** — CRUD for reusable materials/labor (Joist-style item list)
+- **Clients** — Full contact management
+- **Quote builder** — 4 steps: client → line items → markup/tax → PDF
+- **Quotes list** — Draft / Sent / Approved statuses
+- **Dashboard** — Live stats from your data
+- **PDF export** — Branded quote document per locale
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes
 
-## Deploy on Vercel
+| Route | Description |
+|-------|-------------|
+| `/[locale]/dashboard` | Live stats (sent quotes, approved revenue) |
+| `/[locale]/quotes` | All quotes with status actions |
+| `/[locale]/materials` | Item catalog CRUD |
+| `/[locale]/clients` | Client CRUD |
+| `/[locale]/quote-builder` | Create quote wizard |
+| `/[locale]/auth/login` | Sign in (placeholder) |
+| `/[locale]/auth/signup` | Sign up (placeholder) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/[locale]/       # Localized routes
+├── components/layout/  # AppShell, nav, language switcher
+├── i18n/               # Routing, navigation, request config
+└── messages/           # Translation JSON (en, tr, es, de, fr)
+```
+
+## Adding translations
+
+Edit `src/messages/{locale}.json`. Keys must match across all locale files.

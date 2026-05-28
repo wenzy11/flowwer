@@ -1,0 +1,643 @@
+{
+  "metadata": {
+    "title": "QuoteFlow",
+    "description": "Estimate, invoice, collect payments, and manage projects from anywhere — built for contractors."
+  },
+  "site": {
+    "tagline": "Estimate, invoice & get paid faster"
+  },
+  "common": {
+    "save": "Save",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "actions": "Actions",
+    "error": "Something went wrong. Please try again.",
+    "loading": "Loading…"
+  },
+  "nav": {
+    "dashboard": "Home",
+    "dashboardDescription": "Overview of estimates, invoices & payments",
+    "estimates": "Estimates",
+    "estimatesDescription": "Create & share professional estimates",
+    "invoices": "Invoices",
+    "invoicesDescription": "Bill clients and track what you are owed",
+    "payments": "Payments",
+    "paymentsDescription": "Accept and record client payments",
+    "items": "Item List",
+    "itemsDescription": "Commonly used materials & labor rates",
+    "clients": "Clients",
+    "clientsDescription": "Manage customers on the go",
+    "newEstimate": "New Estimate",
+    "newEstimateDescription": "Create an estimate in minutes",
+    "reports": "Reports",
+    "reportsDescription": "Sales reporting & business insights",
+    "integrations": "Integrations",
+    "integrationsDescription": "QuickBooks, payments & financing",
+    "settings": "Settings",
+    "settingsDescription": "Logo, defaults & business profile",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation",
+    "createQuote": "New Estimate"
+  },
+  "dashboard": {
+    "title": "Home",
+    "description": "Save time, win more jobs, and get paid faster.",
+    "newQuote": "New Estimate",
+    "totalQuotesSent": "Estimates Sent",
+    "totalQuotesSentDescription": "Estimates shared with clients",
+    "revenueApproved": "Approved Estimate Value",
+    "revenueApprovedDescription": "Total value of approved estimates",
+    "invoicesOutstanding": "Outstanding Invoices",
+    "invoicesOutstandingDescription": "Amount still owed on open invoices",
+    "paymentsCollected": "Payments Collected",
+    "paymentsCollectedDescription": "Total recorded on invoices",
+    "drafts": "Draft Estimates",
+    "catalogItems": "Item List",
+    "clientsCount": "Clients",
+    "gettingStarted": "Getting started",
+    "gettingStartedDescription": "Set up Joist-style essentials in minutes.",
+    "addMaterials": "Build item list",
+    "addMaterialsDescription": "Save materials & labor rates",
+    "addClients": "Add clients",
+    "addClientsDescription": "Store contact details",
+    "createQuote": "Create estimate",
+    "createQuoteDescription": "Win jobs on the spot",
+    "welcomeTitle": "The #1 way contractors estimate, invoice & get paid",
+    "welcomeDescription": "Create quick, professional estimates and invoices. Accept payments, manage clients, and grow sales — from the job site or office.",
+    "draftsHint": "Estimates still being edited",
+    "catalogHint": "Reusable items — add to estimates in one tap",
+    "clientsHint": "All customer info in one place",
+    "setup": {
+      "title": "Setup guide",
+      "subtitle": "Go step by step — each task takes a few minutes.",
+      "progress": "{done} of {total} required steps done ({percent}%)",
+      "tipLabel": "Tip",
+      "completed": "Done",
+      "optionalSection": "Optional (more professional documents)",
+      "optionalBadge": "optional",
+      "allDoneTitle": "Setup complete!",
+      "allDoneDescription": "Company info, catalog, and quoting are ready. Create and send your next estimate.",
+      "tasks": {
+        "company": {
+          "title": "Enter your company name",
+          "description": "Trade name shown at the top of estimates and invoices.",
+          "tip": "Use the name customers know — e.g. \"Smith Electric LLC\".",
+          "action": "Settings → company name"
+        },
+        "contact": {
+          "title": "Add contact details",
+          "description": "At least email or phone so clients can reach you.",
+          "tip": "Use the same number you give customers on site.",
+          "action": "Contact info"
+        },
+        "address": {
+          "title": "Enter your business address",
+          "description": "Full address printed on PDF documents.",
+          "tip": "Include city and postal code.",
+          "action": "Add address"
+        },
+        "tax": {
+          "title": "Add tax information",
+          "description": "Tax ID for invoices and official documents.",
+          "tip": "EIN in the US; VAT number in the EU.",
+          "action": "Tax details"
+        },
+        "quoteDefaults": {
+          "title": "Set quote defaults",
+          "description": "Markup, tax rate, currency, and standard terms.",
+          "tip": "e.g. 20% markup, 8% tax, \"50% deposit required\".",
+          "action": "Edit defaults"
+        },
+        "items": {
+          "title": "Add items to your catalog",
+          "description": "Save materials and labor you use on every job.",
+          "tip": "Units: sq ft, hour, each — add to quotes in one tap.",
+          "action": "Add first item"
+        },
+        "clients": {
+          "title": "Add your first client",
+          "description": "Name, phone, address — quick pick when quoting.",
+          "tip": "Start with one real customer; duplicate later.",
+          "action": "Add client"
+        },
+        "firstEstimate": {
+          "title": "Create your first estimate",
+          "description": "Pick a client, add lines, export PDF or share link.",
+          "tip": "Save as draft first, send when ready.",
+          "action": "Start estimate"
+        },
+        "logo": {
+          "title": "Add your logo",
+          "description": "Logo URL makes documents look more professional.",
+          "tip": "Square PNG, at least 200×200 px recommended.",
+          "action": "Logo URL"
+        },
+        "license": {
+          "title": "License or insurance info",
+          "description": "Extra trust line — contractor license, insurance summary.",
+          "tip": "Optional but helps win bigger jobs.",
+          "action": "License info"
+        }
+      }
+    },
+    "recentQuotes": {
+      "title": "Recent estimates",
+      "description": "Pick up where you left off",
+      "viewAll": "View all estimates"
+    },
+    "statusGuide": {
+      "title": "Estimate statuses",
+      "description": "Track client approvals like Joist",
+      "draft": {
+        "label": "Draft",
+        "hint": "Not sent yet — still editing."
+      },
+      "sent": {
+        "label": "Sent",
+        "hint": "Shared with client — awaiting approval."
+      },
+      "approved": {
+        "label": "Approved",
+        "hint": "Client accepted — convert to invoice."
+      },
+      "declined": {
+        "label": "Declined",
+        "hint": "Client passed — kept for records."
+      }
+    }
+  },
+  "materials": {
+    "title": "Item List",
+    "description": "Build a list of commonly used materials and labor rates — add to estimates in seconds.",
+    "addItem": "Add Item",
+    "editItem": "Edit Item",
+    "formDescription": "Save items you use often and add them to quotes in one tap.",
+    "itemDatabase": "Item catalog",
+    "itemDatabaseDescription": "Name, unit (m², hours, pieces), and cost per unit.",
+    "emptyTitle": "No items yet",
+    "emptyDescription": "Add your common materials and labor rates to speed up quoting.",
+    "confirmDelete": "Delete this item from your catalog?",
+    "fields": {
+      "name": "Name",
+      "unit": "Unit",
+      "unitPlaceholder": "m², hour, pcs",
+      "unitCost": "Unit cost"
+    },
+    "bannerTitle": "Commonly used items",
+    "bannerDescription": "Easily calculate material & labor costs. Select saved items instead of retyping on every job."
+  },
+  "clients": {
+    "title": "Client Management",
+    "description": "Stay organized and manage customers on the go.",
+    "addClient": "Add Client",
+    "editClient": "Edit Client",
+    "formDescription": "Store client info for quick quote creation.",
+    "clientList": "Client list",
+    "clientListDescription": "Name, email, phone, and address for each client.",
+    "emptyTitle": "No clients yet",
+    "emptyDescription": "Add your first client to start creating quotes.",
+    "confirmDelete": "Delete this client?",
+    "deleteHasQuotes": "Cannot delete — this client has quotes linked.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    },
+    "bannerTitle": "Manage clients",
+    "bannerDescription": "Create, organize, and store valuable client info. Access anytime, on the go."
+  },
+  "quotes": {
+    "title": "Estimates",
+    "description": "Win more clients on-the-spot with quick and professional estimates.",
+    "newQuote": "New Estimate",
+    "emptyTitle": "No estimates yet",
+    "emptyDescription": "Create & share estimates in just minutes — be first to get an estimate in your client's hands.",
+    "number": "Estimate #",
+    "client": "Client",
+    "statusLabel": "Status",
+    "total": "Total",
+    "details": "Estimate details",
+    "downloadPdf": "Preview / PDF",
+    "markSent": "Mark as sent",
+    "markApproved": "Mark approved",
+    "confirmDelete": "Delete this estimate permanently?",
+    "convertToInvoice": "Convert to invoice",
+    "status": {
+      "draft": "Draft",
+      "sent": "Sent",
+      "approved": "Approved",
+      "declined": "Declined"
+    },
+    "listBannerTitle": "Estimates",
+    "listBannerDescription": "Create estimates with deposits, markups, line items & photos. Send for approval and convert to invoices instantly.",
+    "searchPlaceholder": "Search estimate # or client…",
+    "filterStatus": "Filter by status",
+    "filterAll": "All statuses",
+    "resultsCount": "Showing {count} of {total} estimates",
+    "noResults": "No estimates match your search.",
+    "duplicate": "Duplicate",
+    "markDeclined": "Mark declined"
+  },
+  "quoteBuilder": {
+    "title": "New Estimate",
+    "description": "Create & share estimates in just minutes with our easy-to-use estimating tool.",
+    "selectClient": "Select client",
+    "selectClientPlaceholder": "Choose a client…",
+    "addNewClient": "Add new client",
+    "noClients": "Add a client first to continue.",
+    "addFromCatalog": "Add from catalog",
+    "catalogPlaceholder": "Pick a saved item…",
+    "lineItem": "Line item",
+    "itemName": "Description",
+    "unit": "Unit",
+    "addCustomLine": "Add line item",
+    "markupPercent": "Markup %",
+    "taxPercent": "Tax %",
+    "validUntil": "Valid until",
+    "notes": "Terms & notes",
+    "notesPlaceholder": "Payment terms, warranty, scope notes…",
+    "subtotal": "Subtotal",
+    "markup": "Markup",
+    "tax": "Tax",
+    "total": "Total",
+    "saveQuote": "Save quote",
+    "saveError": "Could not save quote. Check all fields.",
+    "successTitle": "Quote saved!",
+    "successDescription": "Your quote is ready to send. Download the PDF or view all quotes.",
+    "client": "Client",
+    "downloadPdf": "Download PDF",
+    "viewQuotes": "View all quotes",
+    "steps": {
+      "1": {
+        "title": "Client",
+        "description": "Choose an existing client or add a new one."
+      },
+      "2": {
+        "title": "Line items",
+        "description": "Add from catalog or enter custom items."
+      },
+      "3": {
+        "title": "Markup & tax",
+        "description": "Apply margin and tax — totals update live."
+      },
+      "4": {
+        "title": "PDF",
+        "description": "Download a professional quote document."
+      }
+    },
+    "bannerTitle": "Win more jobs on-the-spot",
+    "bannerDescription": "Four steps: client → line items → markup, tax & deposit → save & send PDF.",
+    "reviewHint": "Review totals before saving. You can download PDF and email it to your client.",
+    "hints": {
+      "selectClient": "Who will receive this quote? Add new clients without leaving this page.",
+      "markup": "Profit margin applied to subtotal (e.g. 20% covers overhead and profit).",
+      "tax": "Sales tax or VAT applied after markup.",
+      "validUntil": "Quote expiry date. Default is 30 days from today.",
+      "notes": "Payment terms, warranty, scope. Pre-filled from Settings if configured.",
+      "deposit": "Request a deposit before work begins — Joist Basics.",
+      "personalMessage": "A personal note included on the estimate for your client."
+    },
+    "depositPercent": "Deposit %",
+    "personalMessage": "Personal message to client",
+    "personalMessagePlaceholder": "Thank you for your business! We look forward to working with you.",
+    "markSent": "Mark as sent",
+    "viewInvoices": "View invoices"
+  },
+  "pdf": {
+    "estimate": "ESTIMATE",
+    "invoice": "INVOICE",
+    "quote": "ESTIMATE",
+    "deposit": "Deposit due",
+    "personalMessage": "Message",
+    "billTo": "Bill To",
+    "description": "Description",
+    "unit": "Unit",
+    "qty": "Qty",
+    "unitPrice": "Unit Price",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "markup": "Markup",
+    "tax": "Tax",
+    "grandTotal": "Total Due",
+    "notes": "Notes & Terms",
+    "validUntil": "Valid until"
+  },
+  "auth": {
+    "brandHeadline": "Win more jobs with professional quotes",
+    "brandSubline": "Create estimates in minutes, send from the job site, and look like the contractor clients trust.",
+    "signIn": "Sign in",
+    "signInDescription": "Access your {appName} account to manage quotes and clients.",
+    "signUp": "Create account",
+    "signUpDescription": "Start sending professional quotes with {appName}.",
+    "placeholder": "Authentication will be connected in Step 2 (Supabase).",
+    "signUpPlaceholder": "Registration will be connected in Step 2 (Supabase).",
+    "continueWithGoogle": "Continue with Google",
+    "signInWithEmail": "Sign in with Email",
+    "signUpWithEmail": "Sign up with Email",
+    "noAccount": "No account?",
+    "createOne": "Create one",
+    "hasAccount": "Already have an account?",
+    "signInLink": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "signingIn": "Signing in…",
+    "or": "or",
+    "name": "Full name",
+    "signOut": "Sign out",
+    "signingUp": "Signing up…",
+    "firebaseNotConfigured": "Firebase is not configured. Check .env.local",
+    "errors": {
+      "unknown": "Something went wrong. Try again.",
+      "auth/invalid-credential": "Invalid email or password.",
+      "auth/email-already-in-use": "Email already in use.",
+      "auth/weak-password": "Password must be at least 6 characters.",
+      "auth/too-many-requests": "Too many attempts. Wait a moment."
+    }
+  },
+  "language": {
+    "label": "Language",
+    "switch": "Change language"
+  },
+  "locales": {
+    "en": "English",
+    "tr": "Türkçe",
+    "es": "Español",
+    "de": "Deutsch",
+    "fr": "Français"
+  },
+  "quoteDetail": {
+    "backToQuotes": "Back to quotes",
+    "created": "Created",
+    "validUntil": "Valid until",
+    "duplicate": "Duplicate",
+    "clientInfo": "Client",
+    "lineItems": "Line items",
+    "lineItemsDescription": "Materials and labor included in this quote",
+    "subtotal": "Subtotal",
+    "markup": "Markup",
+    "tax": "Tax",
+    "total": "Total",
+    "termsNotes": "Terms & notes",
+    "actionsTitle": "Update status",
+    "actionsDescription": "Move the quote forward as you communicate with your client",
+    "markDeclined": "Mark declined",
+    "statusHelp": {
+      "draft": {
+        "title": "This quote is a draft",
+        "description": "Edit by duplicating or create a new quote. Mark as Sent when you share it with the client."
+      },
+      "sent": {
+        "title": "Waiting for client response",
+        "description": "Mark Approved when they accept, or Declined if they pass."
+      },
+      "approved": {
+        "title": "Quote approved",
+        "description": "This amount counts toward your approved revenue on the dashboard."
+      },
+      "declined": {
+        "title": "Quote declined",
+        "description": "Kept for records. Duplicate to create a revised quote if needed."
+      }
+    },
+    "backToInvoices": "Back to invoices",
+    "personalMessage": "Personal message",
+    "deposit": "Deposit requested",
+    "paid": "Amount paid",
+    "copyClientLink": "Copy client link",
+    "linkCopied": "Link copied!",
+    "invoiceExistsTitle": "Invoice already created",
+    "invoiceExistsDescription": "Invoice {number} already exists for this estimate.",
+    "fromEstimate": "From estimate:",
+    "openInvoice": "Open invoice",
+    "viewedAt": "Client viewed: {date}"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Your business details appear on every PDF quote.",
+    "bannerTitle": "Customize your documents",
+    "bannerDescription": "Company info, logo, license, default markup, tax, deposit & payment terms — like Joist Pro.",
+    "businessProfile": "Business profile",
+    "businessProfileDescription": "Shown at the top of your PDF quotes",
+    "contactSection": "Contact",
+    "contactSectionDescription": "Email and phone on quotes",
+    "addressSection": "Address",
+    "addressSectionDescription": "Business or service area address",
+    "taxSection": "Tax information",
+    "taxSectionDescription": "Tax ID and office for invoice compliance",
+    "taxIdPlaceholder": "e.g. 12-3456789",
+    "taxOfficePlaceholder": "e.g. IRS / local office",
+    "quoteDefaults": "Quote defaults",
+    "quoteDefaultsDescription": "Pre-filled when you create a new quote",
+    "saved": "Settings saved successfully.",
+    "defaultTermsPlaceholder": "e.g. 50% deposit required. Balance due on completion. Quote valid 30 days.",
+    "fields": {
+      "companyName": "Company name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "taxId": "Tax ID",
+      "taxOffice": "Tax office",
+      "currency": "Currency",
+      "defaultMarkup": "Default markup %",
+      "defaultTax": "Default tax %",
+      "defaultTerms": "Default terms & notes",
+      "logoUrl": "Logo URL",
+      "licenseNumber": "License number",
+      "insuranceInfo": "Insurance info",
+      "defaultDeposit": "Default deposit %",
+      "paymentsEnabled": "Enable online payments"
+    },
+    "hints": {
+      "companyName": "Your trading name as clients know you",
+      "email": "Contact email on quotes",
+      "phone": "Phone number on quotes",
+      "address": "Business address on quotes",
+      "taxId": "Federal or VAT registration number",
+      "taxOffice": "Issuing tax authority or office name",
+      "currency": "Currency for all amounts",
+      "defaultMarkup": "Typical profit margin (e.g. 20%)",
+      "defaultTax": "Typical tax rate (e.g. 8.5%)",
+      "defaultTerms": "Standard payment terms auto-added to new quotes",
+      "logoUrl": "Paste a link to your company logo image",
+      "licenseNumber": "Contractor license number",
+      "insuranceInfo": "Insurance carrier and policy summary",
+      "defaultDeposit": "Default deposit on new estimates"
+    },
+    "logoBranding": "Logo & branding",
+    "logoBrandingDescription": "Display your logo on estimates and invoices. Joist Pro.",
+    "licenseSection": "License & insurance",
+    "licenseSectionDescription": "Shown on professional documents. Joist Elite.",
+    "paymentsSection": "Online payments",
+    "paymentsSectionDescription": "Enable Joist Payments on invoices.",
+    "dataExport": "Data export",
+    "dataExportDescription": "Download your data as CSV — no vendor lock-in.",
+    "exportEstimates": "Export estimates",
+    "exportInvoices": "Export invoices",
+    "exportClients": "Export clients"
+  },
+  "features": {
+    "title": "Powerful features built for contractors",
+    "description": "Everything you need to estimate, invoice, and collect payments.",
+    "estimates": {
+      "title": "Estimates",
+      "description": "Win more clients on-the-spot with quick, professional estimates. Deposits, markups & contracts."
+    },
+    "invoices": {
+      "title": "Invoices",
+      "description": "Send professional invoices, issue reminders, and track monthly sales."
+    },
+    "payments": {
+      "title": "Payments",
+      "description": "Accept credit card payments and get paid faster — cut cash flow delays."
+    },
+    "clients": {
+      "title": "Client Management",
+      "description": "Store, access, and export customer information from anywhere."
+    },
+    "financing": {
+      "title": "Homeowner Financing",
+      "description": "Offer financing on-site — land more jobs and bigger upsells."
+    },
+    "quickbooks": {
+      "title": "QuickBooks Sync",
+      "description": "Automate bookkeeping by syncing jobs and clients with QuickBooks Online."
+    },
+    "reports": {
+      "title": "Sales Reporting",
+      "description": "Generate business reports and track approved estimate value."
+    }
+  },
+  "invoices": {
+    "title": "Invoices",
+    "description": "Send professional invoices to your customers and track payments.",
+    "newQuote": "From estimate",
+    "emptyTitle": "No invoices yet",
+    "emptyDescription": "Convert an approved estimate to an invoice instantly — or create one from scratch.",
+    "goToEstimates": "View estimates",
+    "number": "Invoice #",
+    "client": "Client",
+    "statusLabel": "Status",
+    "paymentLabel": "Payment",
+    "total": "Total",
+    "downloadPdf": "Preview / PDF",
+    "markSent": "Mark as sent",
+    "markApproved": "Mark paid",
+    "confirmDelete": "Delete this invoice permanently?",
+    "convertToInvoice": "Convert to invoice",
+    "status": {
+      "draft": "Draft",
+      "sent": "Sent",
+      "approved": "Paid",
+      "declined": "Void"
+    },
+    "payment": {
+      "unpaid": "Unpaid",
+      "partial": "Partial",
+      "paid": "Paid"
+    },
+    "listBannerTitle": "Invoices",
+    "listBannerDescription": "Record payments, issue reminders, and easily keep track of your monthly sales.",
+    "searchPlaceholder": "Search invoice # or client…",
+    "filterStatus": "Filter by status",
+    "filterAll": "All statuses",
+    "resultsCount": "Showing {count} of {total} invoices",
+    "noResults": "No invoices match your search.",
+    "duplicate": "Duplicate",
+    "markDeclined": "Void invoice",
+    "newInvoice": "New Invoice"
+  },
+  "payments": {
+    "title": "Payments",
+    "description": "Make collecting payments the easiest, most efficient part of your business.",
+    "bannerTitle": "Get paid faster",
+    "bannerDescription": "Accept credit card, debit, or record manual payments. Track what you're owed in one place.",
+    "emptyTitle": "No invoices to collect yet",
+    "emptyDescription": "Convert an approved estimate to an invoice, then record payments here.",
+    "emptyAction": "Go to estimates →",
+    "outstanding": "Outstanding balance",
+    "collected": "Total collected",
+    "balance": "Balance due",
+    "recordPayment": "Record payment",
+    "markPaid": "Mark paid in full",
+    "status": {
+      "unpaid": "Unpaid",
+      "partial": "Partial",
+      "paid": "Paid"
+    },
+    "detailDescription": "Record payments on this invoice",
+    "history": "Payment history",
+    "total": "Invoice total"
+  },
+  "reports": {
+    "title": "Sales Reporting",
+    "description": "Generate business reports — included in Joist Elite.",
+    "bannerTitle": "Business reports",
+    "bannerDescription": "Track approved estimate value and payments collected by month.",
+    "totalEstimates": "Total estimates",
+    "totalInvoices": "Total invoices",
+    "approvedValue": "Approved estimate value",
+    "totalCollected": "Payments collected",
+    "monthlyTitle": "Monthly breakdown",
+    "monthlyDescription": "Approved estimates vs payments collected",
+    "approved": "Approved",
+    "collected": "Collected",
+    "noData": "Create estimates and invoices to see reports."
+  },
+  "integrations": {
+    "title": "Integrations",
+    "description": "Connect payments, financing, and accounting — like Joist Pro & Elite.",
+    "bannerTitle": "Connect your business tools",
+    "bannerDescription": "Online payments and financing are available on all plans. QuickBooks sync requires Joist Pro.",
+    "payments": {
+      "title": "Joist Payments",
+      "description": "Accept credit card and debit payments directly on invoices. Switch on Payments and get paid.",
+      "action": "Enable payments (coming soon)",
+      "enabled": "Payments enabled in settings"
+    },
+    "financing": {
+      "title": "Homeowner Financing",
+      "description": "Offer competitive personal loans on-site — land more jobs and win upsells.",
+      "action": "Set up financing (coming soon)"
+    },
+    "quickbooks": {
+      "title": "QuickBooks Online Sync",
+      "description": "Automate bookkeeping by syncing jobs and clients with QuickBooks Online.",
+      "action": "Connect QuickBooks (coming soon)"
+    },
+    "contracts": {
+      "title": "Custom Contracts",
+      "description": "Attach contracts and collect signatures on the spot. Joist Pro.",
+      "action": "Manage contracts (coming soon)"
+    },
+    "notifications": {
+      "title": "Client Notifications",
+      "description": "Get notified when clients view estimates and invoices. Joist Pro.",
+      "action": "Configure notifications (coming soon)"
+    },
+    "license": {
+      "title": "License & Insurance",
+      "description": "Display license and insurance on documents. Joist Elite.",
+      "action": "Add license info in Settings"
+    }
+  },
+  "invoiceBuilder": {
+    "title": "New Invoice",
+    "description": "Create an invoice from scratch."
+  },
+  "clientPortal": {
+    "subtitle": "Review and respond to your estimate",
+    "approve": "Approve",
+    "decline": "Decline",
+    "deposit": "Deposit: {percent}% ({amount})",
+    "alreadyApproved": "This estimate was approved.",
+    "alreadyDeclined": "This estimate was declined.",
+    "notReady": "This estimate is not ready for a response yet.",
+    "poweredBy": "QuoteFlow"
+  }
+}

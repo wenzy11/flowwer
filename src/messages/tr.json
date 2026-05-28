@@ -1,0 +1,643 @@
+{
+  "metadata": {
+    "title": "QuoteFlow",
+    "description": "Saha, ofis veya web — teklif, fatura oluşturun; ödeme alın; projeleri yönetin."
+  },
+  "site": {
+    "tagline": "Teklif, fatura ve hızlı ödeme"
+  },
+  "common": {
+    "save": "Kaydet",
+    "saving": "Kaydediliyor…",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "view": "Görüntüle",
+    "back": "Geri",
+    "next": "İleri",
+    "actions": "İşlemler",
+    "error": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "loading": "Yükleniyor…"
+  },
+  "nav": {
+    "dashboard": "Ana Sayfa",
+    "dashboardDescription": "Teklif, fatura ve ödeme özeti",
+    "estimates": "Teklifler",
+    "estimatesDescription": "Profesyonel teklifler oluşturun ve paylaşın",
+    "invoices": "Faturalar",
+    "invoicesDescription": "Fatura gönderin ve alacakları takip edin",
+    "payments": "Ödemeler",
+    "paymentsDescription": "Ödeme alın ve kaydedin",
+    "items": "Kalem Listesi",
+    "itemsDescription": "Sık kullanılan malzeme ve işçilik",
+    "clients": "Müşteriler",
+    "clientsDescription": "Müşterileri her yerden yönetin",
+    "newEstimate": "Yeni Teklif",
+    "newEstimateDescription": "Dakikalar içinde teklif oluşturun",
+    "reports": "Raporlar",
+    "reportsDescription": "Satış raporları ve özetler",
+    "integrations": "Entegrasyonlar",
+    "integrationsDescription": "QuickBooks, ödeme ve finansman",
+    "settings": "Ayarlar",
+    "settingsDescription": "Logo, varsayılanlar ve şirket profili",
+    "mainNavigation": "Ana menü",
+    "mobileNavigation": "Mobil menü",
+    "createQuote": "Yeni Teklif"
+  },
+  "dashboard": {
+    "title": "Ana Sayfa",
+    "description": "Zaman kazanın, daha fazla iş kazanın, daha hızlı ödeme alın.",
+    "newQuote": "Yeni Teklif",
+    "totalQuotesSent": "Gönderilen Teklifler",
+    "totalQuotesSentDescription": "Müşteriye iletilen teklifler",
+    "revenueApproved": "Onaylanan Teklif Tutarı",
+    "revenueApprovedDescription": "Onaylanan tekliflerin toplam değeri",
+    "invoicesOutstanding": "Açık Faturalar",
+    "invoicesOutstandingDescription": "Ödenmemiş fatura bakiyesi",
+    "paymentsCollected": "Tahsil Edilen",
+    "paymentsCollectedDescription": "Faturalarda kayıtlı ödemeler",
+    "drafts": "Taslak Teklifler",
+    "catalogItems": "Kalem Listesi",
+    "clientsCount": "Müşteriler",
+    "gettingStarted": "Başlangıç",
+    "gettingStartedDescription": "Joist tarzı kurulumu dakikalar içinde tamamlayın.",
+    "addMaterials": "Kalem ekle",
+    "addMaterialsDescription": "Malzeme ve işçilik kaydet",
+    "addClients": "Müşteri ekle",
+    "addClientsDescription": "İletişim bilgilerini sakla",
+    "createQuote": "Teklif oluştur",
+    "createQuoteDescription": "Sahada iş kazanın",
+    "welcomeTitle": "Ustalar için teklif, fatura ve ödeme",
+    "welcomeDescription": "Dakikalar içinde profesyonel teklif ve fatura. Ödeme alın, müşterileri yönetin, satışları artırın — sahada veya ofiste.",
+    "draftsHint": "Henüz gönderilmemiş taslak teklifler",
+    "catalogHint": "Tek tıkla teklife eklenen kalemler",
+    "clientsHint": "Tüm müşteri bilgileri tek yerde",
+    "setup": {
+      "title": "Kurulum rehberi",
+      "subtitle": "Adım adım ilerleyin — her görev birkaç dakika sürer.",
+      "progress": "{total} zorunlu adımdan {done} tamamlandı (%{percent})",
+      "tipLabel": "İpucu",
+      "completed": "Tamamlandı",
+      "optionalSection": "İsteğe bağlı (daha profesyonel belgeler)",
+      "optionalBadge": "isteğe bağlı",
+      "allDoneTitle": "Kurulum tamam!",
+      "allDoneDescription": "Şirket bilgileriniz, katalog ve teklif akışı hazır. Yeni teklif oluşturup müşteriye gönderebilirsiniz.",
+      "tasks": {
+        "company": {
+          "title": "Şirket adınızı yazın",
+          "description": "Teklif ve faturaların üstünde görünecek ticari unvan.",
+          "tip": "Müşterilerin tanıdığı ismi kullanın — örn. \"Yılmaz Elektrik\".",
+          "action": "Ayarlar → şirket adı"
+        },
+        "contact": {
+          "title": "İletişim bilgilerini ekleyin",
+          "description": "En az e-posta veya telefon — müşteri sizi kolayca arasın.",
+          "tip": "Sahada verdiğiniz numara ile aynı olsun.",
+          "action": "İletişim bilgileri"
+        },
+        "address": {
+          "title": "İş adresinizi girin",
+          "description": "PDF belgelerde görünen tam adres.",
+          "tip": "Mahalle, ilçe ve şehir dahil yazın.",
+          "action": "Adres ekle"
+        },
+        "tax": {
+          "title": "Vergi bilgilerini girin",
+          "description": "VKN veya TCKN — fatura ve resmi belgeler için.",
+          "tip": "10 haneli VKN; şahıs işletmesinde TCKN kullanılabilir.",
+          "action": "Vergi bilgileri"
+        },
+        "quoteDefaults": {
+          "title": "Teklif varsayılanlarını ayarlayın",
+          "description": "Kar marjı, KDV oranı, para birimi ve standart şartlar.",
+          "tip": "Örn. %20 marj, %20 KDV, \"Kapora %50\" notu.",
+          "action": "Varsayılanları düzenle"
+        },
+        "items": {
+          "title": "Kalem listesine eşya ekleyin",
+          "description": "Sık kullandığınız malzeme ve işçilik fiyatlarını kaydedin.",
+          "tip": "Birim: m², saat, adet — teklifte tek tıkla eklenir.",
+          "action": "İlk kalemi ekle"
+        },
+        "clients": {
+          "title": "İlk müşterinizi ekleyin",
+          "description": "Ad, telefon ve adres — teklif oluştururken hızlı seçim.",
+          "tip": "Gerçek bir müşteriyle başlayın; sonra çoğaltırsınız.",
+          "action": "Müşteri ekle"
+        },
+        "firstEstimate": {
+          "title": "İlk teklifinizi oluşturun",
+          "description": "Müşteri seçin, kalemleri ekleyin, PDF alın veya paylaşın.",
+          "tip": "Taslak olarak kaydedip sonra gönderebilirsiniz.",
+          "action": "Teklife başla"
+        },
+        "logo": {
+          "title": "Logo ekleyin",
+          "description": "Logo URL’si ile belgeleriniz daha kurumsal görünür.",
+          "tip": "Kare PNG, en az 200×200 px önerilir.",
+          "action": "Logo URL"
+        },
+        "license": {
+          "title": "Lisans veya sigorta bilgisi",
+          "description": "Güven veren ek satır — usta lisansı, sigorta özeti.",
+          "tip": "Boş bırakılabilir; varsa müşteri güveni artar.",
+          "action": "Lisans bilgisi"
+        }
+      }
+    },
+    "recentQuotes": {
+      "title": "Son teklifler",
+      "description": "Kaldığınız yerden devam edin",
+      "viewAll": "Tüm teklifler"
+    },
+    "statusGuide": {
+      "title": "Teklif durumları",
+      "description": "Joist gibi müşteri onayını takip edin",
+      "draft": {
+        "label": "Taslak",
+        "hint": "Henüz gönderilmedi — düzenleniyor."
+      },
+      "sent": {
+        "label": "Gönderildi",
+        "hint": "Müşteriye iletildi — onay bekleniyor."
+      },
+      "approved": {
+        "label": "Onaylandı",
+        "hint": "Müşteri kabul etti — faturaya dönüştürün."
+      },
+      "declined": {
+        "label": "Reddedildi",
+        "hint": "Müşteri reddetti — kayıt için saklanır."
+      }
+    }
+  },
+  "materials": {
+    "title": "Kalem Listesi",
+    "description": "Sık kullanılan malzeme ve işçilik listesi — saniyeler içinde teklife ekleyin.",
+    "addItem": "Kalem Ekle",
+    "editItem": "Kalemi Düzenle",
+    "formDescription": "Sık kullandığınız kalemleri kaydedin, teklife tek dokunuşla ekleyin.",
+    "itemDatabase": "Kalem kataloğu",
+    "itemDatabaseDescription": "Ad, birim (m², saat, adet) ve birim maliyeti.",
+    "emptyTitle": "Henüz kalem yok",
+    "emptyDescription": "Sık kullandığınız malzeme ve işçilik fiyatlarını ekleyin.",
+    "confirmDelete": "Bu kalem katalogdan silinsin mi?",
+    "fields": {
+      "name": "Ad",
+      "unit": "Birim",
+      "unitPlaceholder": "m², saat, adet",
+      "unitCost": "Birim maliyet"
+    },
+    "bannerTitle": "Sık kullanılan kalemler",
+    "bannerDescription": "Malzeme ve işçilik maliyetlerini hesaplayın. Kayıtlı kalemleri seçin."
+  },
+  "clients": {
+    "title": "Müşteri Yönetimi",
+    "description": "Müşterileri organize edin, her yerden yönetin.",
+    "addClient": "Müşteri Ekle",
+    "editClient": "Müşteriyi Düzenle",
+    "formDescription": "Hızlı teklif için müşteri bilgilerini kaydedin.",
+    "clientList": "Müşteri listesi",
+    "clientListDescription": "Her müşteri için ad, e-posta, telefon ve adres.",
+    "emptyTitle": "Henüz müşteri yok",
+    "emptyDescription": "Teklif oluşturmak için ilk müşterinizi ekleyin.",
+    "confirmDelete": "Bu müşteri silinsin mi?",
+    "deleteHasQuotes": "Silinemez — bu müşteriye bağlı teklifler var.",
+    "fields": {
+      "name": "Ad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "address": "Adres"
+    },
+    "bannerTitle": "Müşterileri yönetin",
+    "bannerDescription": "Müşteri bilgilerini oluşturun, düzenleyin ve saklayın."
+  },
+  "quotes": {
+    "title": "Teklifler",
+    "description": "Sahada hızlı ve profesyonel tekliflerle daha fazla müşteri kazanın.",
+    "newQuote": "Yeni Teklif",
+    "emptyTitle": "Henüz teklif yok",
+    "emptyDescription": "Dakikalar içinde teklif oluşturup paylaşın — müşteriye ilk siz ulaşın.",
+    "number": "Teklif No",
+    "client": "Müşteri",
+    "statusLabel": "Durum",
+    "total": "Toplam",
+    "details": "Teklif detayı",
+    "downloadPdf": "PDF İndir",
+    "markSent": "Gönderildi işaretle",
+    "markApproved": "Onaylandı işaretle",
+    "confirmDelete": "Bu teklif kalıcı olarak silinsin mi?",
+    "status": {
+      "draft": "Taslak",
+      "sent": "Gönderildi",
+      "approved": "Onaylandı",
+      "declined": "Reddedildi"
+    },
+    "listBannerTitle": "Teklifler",
+    "listBannerDescription": "Depozito, markup, kalemler ve fotoğraflarla teklif oluşturun. Onay alın, anında faturaya çevirin.",
+    "searchPlaceholder": "Teklif no veya müşteri ara…",
+    "filterStatus": "Duruma göre filtrele",
+    "filterAll": "Tüm durumlar",
+    "resultsCount": "{total} tekliften {count} gösteriliyor",
+    "noResults": "Aramanızla eşleşen teklif yok.",
+    "duplicate": "Teklifi kopyala",
+    "markDeclined": "Reddedildi işaretle",
+    "convertToInvoice": "Faturaya dönüştür"
+  },
+  "quoteBuilder": {
+    "title": "Yeni Teklif",
+    "description": "Kolay teklif aracıyla dakikalar içinde oluşturup paylaşın.",
+    "selectClient": "Müşteri seç",
+    "selectClientPlaceholder": "Müşteri seçin…",
+    "addNewClient": "Yeni müşteri ekle",
+    "noClients": "Devam etmek için önce müşteri ekleyin.",
+    "addFromCatalog": "Katalogdan ekle",
+    "catalogPlaceholder": "Kayıtlı kalem seçin…",
+    "lineItem": "Kalem",
+    "itemName": "Açıklama",
+    "unit": "Birim",
+    "addCustomLine": "Kalem ekle",
+    "markupPercent": "Kar marjı %",
+    "taxPercent": "KDV %",
+    "validUntil": "Geçerlilik tarihi",
+    "notes": "Şartlar ve notlar",
+    "notesPlaceholder": "Ödeme koşulları, garanti, kapsam notları…",
+    "subtotal": "Ara toplam",
+    "markup": "Kar marjı",
+    "tax": "Vergi",
+    "total": "Toplam",
+    "saveQuote": "Teklifi kaydet",
+    "saveError": "Teklif kaydedilemedi. Alanları kontrol edin.",
+    "successTitle": "Teklif kaydedildi!",
+    "successDescription": "Teklifiniz gönderime hazır. PDF indirin veya tüm teklifleri görün.",
+    "client": "Müşteri",
+    "downloadPdf": "PDF İndir",
+    "viewQuotes": "Tüm teklifler",
+    "steps": {
+      "1": {
+        "title": "Müşteri",
+        "description": "Mevcut müşteri seçin veya yeni ekleyin."
+      },
+      "2": {
+        "title": "Kalemler",
+        "description": "Katalogdan ekleyin veya özel kalem girin."
+      },
+      "3": {
+        "title": "Kar ve vergi",
+        "description": "Marj ve vergi uygulayın — toplamlar anlık güncellenir."
+      },
+      "4": {
+        "title": "PDF",
+        "description": "Profesyonel teklif belgesi indirin."
+      }
+    },
+    "bannerTitle": "Sahada daha fazla iş kazanın",
+    "bannerDescription": "Dört adım: müşteri → kalemler → markup, vergi ve depozito → kaydet ve PDF.",
+    "reviewHint": "Kaydetmeden önce toplamları kontrol edin. PDF indirip müşteriye gönderebilirsiniz.",
+    "hints": {
+      "selectClient": "Bu teklifi kim alacak? Sayfadan çıkmadan yeni müşteri ekleyin.",
+      "markup": "Ara toplama uygulanan kar marjı (örn. %20 genel gider ve kâr).",
+      "tax": "Marjdan sonra uygulanan KDV veya satış vergisi.",
+      "validUntil": "Teklif geçerlilik tarihi. Varsayılan bugünden 30 gün.",
+      "notes": "Ödeme koşulları, garanti, kapsam. Ayarlardan otomatik doldurulur.",
+      "deposit": "İşe başlamadan depozito isteyin — Joist Basics.",
+      "personalMessage": "Teklifte müşteriye görünen not."
+    },
+    "depositPercent": "Depozito %",
+    "personalMessage": "Müşteriye kişisel mesaj",
+    "personalMessagePlaceholder": "İş birliğiniz için teşekkürler!",
+    "markSent": "Gönderildi işaretle",
+    "viewInvoices": "Faturalara git"
+  },
+  "pdf": {
+    "quote": "ESTIMATE",
+    "billTo": "Bill To",
+    "description": "Description",
+    "unit": "Unit",
+    "qty": "Qty",
+    "unitPrice": "Unit Price",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "markup": "Markup",
+    "tax": "Tax",
+    "grandTotal": "Total Due",
+    "notes": "Notes & Terms",
+    "validUntil": "Valid until",
+    "estimate": "ESTIMATE",
+    "invoice": "INVOICE",
+    "deposit": "Deposit due",
+    "personalMessage": "Message"
+  },
+  "auth": {
+    "brandHeadline": "Profesyonel tekliflerle daha fazla iş kazanın",
+    "brandSubline": "Dakikalar içinde teklif oluşturun, sahada gönderin ve müşterilerin güvendiği ustayı olun.",
+    "signIn": "Giriş yap",
+    "signInDescription": "Teklif ve müşterilerinizi yönetmek için {appName} hesabınıza erişin.",
+    "signUp": "Hesap oluştur",
+    "signUpDescription": "{appName} ile profesyonel teklifler göndermeye başlayın.",
+    "placeholder": "Kimlik doğrulama Adım 2'de bağlanacak (Supabase).",
+    "signUpPlaceholder": "Kayıt Adım 2'de bağlanacak (Supabase).",
+    "continueWithGoogle": "Google ile devam et",
+    "signInWithEmail": "E-posta ile giriş yap",
+    "signUpWithEmail": "E-posta ile kayıt ol",
+    "noAccount": "Hesabınız yok mu?",
+    "createOne": "Oluşturun",
+    "hasAccount": "Zaten hesabınız var mı?",
+    "signInLink": "Giriş yapın",
+    "email": "E-posta",
+    "password": "Şifre",
+    "signingIn": "Giriş yapılıyor…",
+    "or": "veya",
+    "name": "Ad soyad",
+    "signOut": "Çıkış yap",
+    "signingUp": "Kayıt olunuyor…",
+    "firebaseNotConfigured": "Firebase ayarları eksik. .env.local dosyasını kontrol edin.",
+    "errors": {
+      "unknown": "Bir hata oluştu. Tekrar deneyin.",
+      "auth/invalid-credential": "E-posta veya şifre hatalı.",
+      "auth/email-already-in-use": "Bu e-posta zaten kayıtlı.",
+      "auth/weak-password": "Şifre en az 6 karakter olmalı.",
+      "auth/too-many-requests": "Çok fazla deneme. Biraz bekleyin."
+    }
+  },
+  "language": {
+    "label": "Dil",
+    "switch": "Dili değiştir"
+  },
+  "locales": {
+    "en": "English",
+    "tr": "Türkçe",
+    "es": "Español",
+    "de": "Deutsch",
+    "fr": "Français"
+  },
+  "quoteDetail": {
+    "backToQuotes": "Tekliflere dön",
+    "created": "Oluşturulma",
+    "validUntil": "Geçerlilik",
+    "duplicate": "Kopyala",
+    "clientInfo": "Müşteri",
+    "lineItems": "Kalemler",
+    "lineItemsDescription": "Bu teklife dahil malzeme ve işçilik",
+    "subtotal": "Ara toplam",
+    "markup": "Kar marjı",
+    "tax": "Vergi",
+    "total": "Toplam",
+    "termsNotes": "Şartlar ve notlar",
+    "actionsTitle": "Durumu güncelle",
+    "actionsDescription": "Müşteriyle iletişim kurdukça teklifi ilerletin",
+    "markDeclined": "Reddedildi işaretle",
+    "statusHelp": {
+      "draft": {
+        "title": "Bu teklif taslak",
+        "description": "Kopyalayarak düzenleyin veya yeni teklif oluşturun. Müşteriye gönderince Gönderildi yapın."
+      },
+      "sent": {
+        "title": "Müşteri yanıtı bekleniyor",
+        "description": "Kabul ederse Onaylandı, reddederse Reddedildi işaretleyin."
+      },
+      "approved": {
+        "title": "Teklif onaylandı",
+        "description": "Bu tutar paneldeki onaylı gelire eklenir."
+      },
+      "declined": {
+        "title": "Teklif reddedildi",
+        "description": "Kayıt için saklanır. Revize teklif için kopyalayabilirsiniz."
+      }
+    },
+    "backToInvoices": "Faturalara dön",
+    "personalMessage": "Kişisel mesaj",
+    "deposit": "İstenen depozito",
+    "paid": "Ödenen tutar",
+    "copyClientLink": "Müşteri linkini kopyala",
+    "linkCopied": "Link kopyalandı!",
+    "invoiceExistsTitle": "Fatura zaten oluşturuldu",
+    "invoiceExistsDescription": "Bu teklif için {number} numaralı fatura mevcut.",
+    "fromEstimate": "Kaynak teklif:",
+    "openInvoice": "Faturayı aç",
+    "viewedAt": "Müşteri görüntüledi: {date}"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "description": "İşletme bilgileriniz her PDF teklifinde görünür.",
+    "bannerTitle": "Belgelerinizi özelleştirin",
+    "bannerDescription": "Şirket bilgisi, logo, lisans, markup, vergi, depozito — Joist Pro gibi.",
+    "businessProfile": "İşletme profili",
+    "businessProfileDescription": "PDF tekliflerinizin üst kısmında görünür",
+    "contactSection": "İletişim",
+    "contactSectionDescription": "E-posta ve telefon — tekliflerde görünür",
+    "addressSection": "Adres",
+    "addressSectionDescription": "İş yeri veya hizmet bölgesi adresi",
+    "taxSection": "Vergi bilgileri",
+    "taxSectionDescription": "VKN / TCKN ve vergi dairesi — fatura uyumu için",
+    "taxIdPlaceholder": "örn. 1234567890",
+    "taxOfficePlaceholder": "örn. Kadıköy",
+    "quoteDefaults": "Teklif varsayılanları",
+    "quoteDefaultsDescription": "Yeni teklif oluştururken otomatik doldurulur",
+    "saved": "Ayarlar başarıyla kaydedildi.",
+    "defaultTermsPlaceholder": "örn. %50 kapora gerekli. Kalan iş bitiminde. Teklif 30 gün geçerlidir.",
+    "fields": {
+      "companyName": "Şirket adı",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "address": "Adres",
+      "taxId": "Vergi no (VKN / TCKN)",
+      "taxOffice": "Vergi dairesi",
+      "currency": "Para birimi",
+      "defaultMarkup": "Varsayılan kar marjı %",
+      "defaultTax": "Varsayılan vergi %",
+      "defaultTerms": "Varsayılan şartlar ve notlar",
+      "logoUrl": "Logo URL",
+      "licenseNumber": "Lisans numarası",
+      "insuranceInfo": "Sigorta bilgisi",
+      "defaultDeposit": "Varsayılan depozito %",
+      "paymentsEnabled": "Online ödemeleri etkinleştir"
+    },
+    "hints": {
+      "companyName": "Müşterilerin bildiği ticari unvanınız",
+      "email": "Tekliflerdeki iletişim e-postası",
+      "phone": "Tekliflerdeki telefon",
+      "address": "Tekliflerdeki iş adresi",
+      "taxId": "10 haneli vergi kimlik numarası",
+      "taxOffice": "Bağlı olduğunuz vergi dairesi adı",
+      "currency": "Tüm tutarlar için para birimi",
+      "defaultMarkup": "Tipik kar marjı (örn. %20)",
+      "defaultTax": "Tipik vergi oranı (örn. %20 KDV)",
+      "defaultTerms": "Yeni tekliflere otomatik eklenen standart koşullar",
+      "logoUrl": "Şirket logo görseli bağlantısı",
+      "licenseNumber": "Usta lisans numarası",
+      "insuranceInfo": "Sigorta özeti",
+      "defaultDeposit": "Yeni tekliflerde varsayılan depozito"
+    },
+    "logoBranding": "Logo ve marka",
+    "logoBrandingDescription": "Teklif ve faturalarda logo. Joist Pro.",
+    "licenseSection": "Lisans ve sigorta",
+    "licenseSectionDescription": "Profesyonel belgelerde gösterilir. Joist Elite.",
+    "paymentsSection": "Online ödemeler",
+    "paymentsSectionDescription": "Faturalarda Joist Payments.",
+    "dataExport": "Veri dışa aktarma",
+    "dataExportDescription": "Verilerinizi CSV olarak indirin — vendor lock-in yok.",
+    "exportEstimates": "Teklifleri indir",
+    "exportInvoices": "Faturaları indir",
+    "exportClients": "Müşterileri indir"
+  },
+  "features": {
+    "title": "Ustalar için güçlü özellikler",
+    "description": "Teklif, fatura ve ödeme için ihtiyacınız olan her şey.",
+    "estimates": {
+      "title": "Teklifler",
+      "description": "Sahada hızlı profesyonel teklifler. Depozito, markup ve sözleşmeler."
+    },
+    "invoices": {
+      "title": "Faturalar",
+      "description": "Profesyonel fatura gönderin, hatırlatma yapın, satışları takip edin."
+    },
+    "payments": {
+      "title": "Ödemeler",
+      "description": "Kredi kartı ile ödeme alın — nakit akışını hızlandırın."
+    },
+    "clients": {
+      "title": "Müşteri Yönetimi",
+      "description": "Müşteri bilgilerine her yerden erişin."
+    },
+    "financing": {
+      "title": "Ev Sahibi Finansmanı",
+      "description": "Sahada finansman sunun — daha fazla iş kazanın."
+    },
+    "quickbooks": {
+      "title": "QuickBooks Senkron",
+      "description": "QuickBooks Online ile muhasebeyi otomatikleştirin."
+    },
+    "reports": {
+      "title": "Satış Raporları",
+      "description": "İş raporları ve onaylanan teklif tutarları."
+    }
+  },
+  "invoices": {
+    "title": "Faturalar",
+    "description": "Müşterilerinize profesyonel fatura gönderin ve ödemeleri takip edin.",
+    "newQuote": "Tekliften",
+    "emptyTitle": "Henüz fatura yok",
+    "emptyDescription": "Onaylanan teklifi anında faturaya dönüştürün.",
+    "goToEstimates": "Tekliflere git",
+    "number": "Fatura No",
+    "client": "Müşteri",
+    "statusLabel": "Durum",
+    "paymentLabel": "Ödeme",
+    "total": "Toplam",
+    "downloadPdf": "Önizle / PDF",
+    "markSent": "Gönderildi işaretle",
+    "markApproved": "Ödendi işaretle",
+    "confirmDelete": "Bu fatura kalıcı olarak silinsin mi?",
+    "convertToInvoice": "Faturaya dönüştür",
+    "status": {
+      "draft": "Taslak",
+      "sent": "Gönderildi",
+      "approved": "Ödendi",
+      "declined": "İptal"
+    },
+    "payment": {
+      "unpaid": "Ödenmedi",
+      "partial": "Kısmi",
+      "paid": "Ödendi"
+    },
+    "listBannerTitle": "Faturalar",
+    "listBannerDescription": "Ödeme kaydedin, hatırlatma gönderin, aylık satışları takip edin.",
+    "searchPlaceholder": "Fatura no veya müşteri ara…",
+    "filterStatus": "Duruma göre filtrele",
+    "filterAll": "Tüm durumlar",
+    "resultsCount": "{total} faturadan {count} gösteriliyor",
+    "noResults": "Aramanızla eşleşen fatura yok.",
+    "duplicate": "Kopyala",
+    "markDeclined": "İptal et",
+    "newInvoice": "Yeni Fatura"
+  },
+  "payments": {
+    "title": "Ödemeler",
+    "description": "Tahsilatı işinizin en kolay parçası haline getirin.",
+    "bannerTitle": "Daha hızlı ödeme alın",
+    "bannerDescription": "Kredi kartı veya manuel ödeme kaydedin. Borçları tek yerden takip edin.",
+    "emptyTitle": "Tahsil edilecek fatura yok",
+    "emptyDescription": "Onaylanan teklifi faturaya çevirin, ardından ödemeyi buradan kaydedin.",
+    "emptyAction": "Tekliflere git →",
+    "outstanding": "Açık bakiye",
+    "collected": "Toplam tahsilat",
+    "balance": "Kalan borç",
+    "recordPayment": "Ödeme kaydet",
+    "markPaid": "Tamamını ödendi işaretle",
+    "status": {
+      "unpaid": "Ödenmedi",
+      "partial": "Kısmi",
+      "paid": "Ödendi"
+    },
+    "detailDescription": "Bu faturaya ödeme kaydedin",
+    "history": "Ödeme geçmişi",
+    "total": "Fatura tutarı"
+  },
+  "reports": {
+    "title": "Satış Raporları",
+    "description": "İş raporları oluşturun — Joist Elite.",
+    "bannerTitle": "İş raporları",
+    "bannerDescription": "Onaylanan teklif ve tahsilatları aya göre görün.",
+    "totalEstimates": "Toplam teklif",
+    "totalInvoices": "Toplam fatura",
+    "approvedValue": "Onaylanan teklif tutarı",
+    "totalCollected": "Tahsil edilen",
+    "monthlyTitle": "Aylık özet",
+    "monthlyDescription": "Onaylanan teklifler ve tahsilat",
+    "approved": "Onaylanan",
+    "collected": "Tahsilat",
+    "noData": "Rapor için teklif ve fatura oluşturun."
+  },
+  "integrations": {
+    "title": "Entegrasyonlar",
+    "description": "Ödeme, finansman ve muhasebe bağlantıları — Joist Pro ve Elite.",
+    "bannerTitle": "İş araçlarınızı bağlayın",
+    "bannerDescription": "Online ödeme ve finansman tüm planlarda. QuickBooks senkron Pro gerektirir.",
+    "payments": {
+      "title": "Joist Payments",
+      "description": "Faturalarda kredi kartı kabul edin. Ödemeleri açın, hızlı tahsilat.",
+      "action": "Ödemeleri etkinleştir (yakında)",
+      "enabled": "Ayarlar'da ödemeler açık"
+    },
+    "financing": {
+      "title": "Ev Sahibi Finansmanı",
+      "description": "Sahada kredi seçenekleri sunun — daha fazla iş.",
+      "action": "Finansmanı kur (yakında)"
+    },
+    "quickbooks": {
+      "title": "QuickBooks Online",
+      "description": "İş ve müşterileri QuickBooks ile senkronize edin.",
+      "action": "QuickBooks bağla (yakında)"
+    },
+    "contracts": {
+      "title": "Özel Sözleşmeler",
+      "description": "Sözleşme ekleyin, sahada imza toplayın. Joist Pro.",
+      "action": "Sözleşmeler (yakında)"
+    },
+    "notifications": {
+      "title": "Müşteri Bildirimleri",
+      "description": "Müşteri teklifi görüntülediğinde bildirim. Joist Pro.",
+      "action": "Bildirimler (yakında)"
+    },
+    "license": {
+      "title": "Lisans ve Sigorta",
+      "description": "Belgelerde lisans ve sigorta gösterin. Joist Elite.",
+      "action": "Ayarlardan lisans ekleyin"
+    }
+  },
+  "invoiceBuilder": {
+    "title": "Yeni Fatura",
+    "description": "Sıfırdan fatura oluşturun."
+  },
+  "clientPortal": {
+    "subtitle": "Teklifinizi inceleyin ve yanıtlayın",
+    "approve": "Onayla",
+    "decline": "Reddet",
+    "deposit": "Depozito: %{percent} ({amount})",
+    "alreadyApproved": "Bu teklif onaylandı.",
+    "alreadyDeclined": "Bu teklif reddedildi.",
+    "notReady": "Bu teklif henüz yanıt için hazır değil.",
+    "poweredBy": "QuoteFlow"
+  }
+}
