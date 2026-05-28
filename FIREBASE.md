@@ -75,3 +75,9 @@ Authentication → Settings → Authorized domains:
 ### 3. Redeploy
 
 Env değiştirdikten sonra Vercel’de **Redeploy** şart (sadece kaydetmek yetmez).
+
+### 4. Google giriş (Vercel)
+
+Production’da Google **popup yerine redirect** kullanılır (daha güvenilir). Girişten sonra aynı login sayfasına dönersiniz; oturum otomatik tamamlanır.
+
+**Preview URL** kullanıyorsanız (`*-git-*.vercel.app`), o host’u da Firebase **Authorized domains**’e ekleyin; aksi halde `unauthorized-domain` hatası alırsınız.

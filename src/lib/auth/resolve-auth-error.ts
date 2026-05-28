@@ -22,6 +22,9 @@ const FIREBASE_ERROR_KEYS: Record<string, string> = {
   "auth/operation-not-allowed": "errors.operationNotAllowed",
   "auth/internal-error": "errors.sessionFailed",
   "auth/network-request-failed": "errors.networkFailed",
+  "auth/cancelled-popup-request": "errors.popupBlocked",
+  "auth/account-exists-with-different-credential": "errors.invalidCredential",
+  "auth/user-disabled": "errors.invalidCredential",
 };
 
 export function resolveAuthError(

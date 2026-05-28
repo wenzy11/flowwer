@@ -29,11 +29,16 @@ export type AdminCredentialParts = {
 export function loadAdminCredentialParts(): AdminCredentialParts {
   const jsonRaw = process.env.FIREBASE_SERVICE_ACCOUNT_JSON?.trim();
   if (jsonRaw) {
-    const parsed = JSON.parse(jsonRaw) as {
+    let parsed: {
       project_id?: string;
       client_email?: string;
       private_key?: string;
     };
+    try {
+      parsed = JSON.parse(jsonRaw) as typeof parsed;
+    } catch {
+      parsed = JSON.parse(jsonRaw.replace(/\r?\n/g, "")) as typeof parsed;
+    }
     const projectId = parsed.project_id?.trim();
     const clientEmail = parsed.client_email?.trim();
     const privateKey = normalizePrivateKey(parsed.private_key);
