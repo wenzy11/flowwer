@@ -1,17 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import { finishClientSignIn } from "@/lib/auth/finish-client-sign-in";
-import {
-  completeGoogleRedirectIfNeeded,
-  signInWithGoogle,
-} from "@/lib/auth/google-sign-in";
+import { signInWithGoogle } from "@/lib/auth/google-sign-in";
+import { redirectAfterSignIn } from "@/lib/auth/redirect-after-sign-in";
 import { resolveAuthError } from "@/lib/auth/resolve-auth-error";
+import { useGoogleRedirectHandler } from "@/lib/auth/use-google-redirect-handler";
 import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase/client";
-import { useRouter } from "@/i18n/navigation";
 import { useAuthHealth } from "@/components/auth/use-auth-health";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,7 +21,6 @@ type SignupFormProps = {
 
 export function SignupForm({ locale }: SignupFormProps) {
   const t = useTranslations("auth");
-  const router = useRouter();
   const health = useAuthHealth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,32 +28,7 @@ export function SignupForm({ locale }: SignupFormProps) {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!isFirebaseConfigured()) return;
-
-    let cancelled = false;
-    (async () => {
-      try {
-        const auth = getFirebaseAuth();
-        const redirectResult = await completeGoogleRedirectIfNeeded(auth);
-        if (!redirectResult || cancelled) return;
-
-        setPending(true);
-        setError(null);
-        await finishClientSignIn(auth);
-        router.push("/dashboard");
-        router.refresh();
-      } catch (err: unknown) {
-        if (!cancelled) setError(resolveAuthError(err, t));
-      } finally {
-        if (!cancelled) setPending(false);
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [router, t]);
+  useGoogleRedirectHandler({ locale, setPending, setError });
 
   if (!isFirebaseConfigured()) {
     return (
@@ -68,8 +40,7 @@ export function SignupForm({ locale }: SignupFormProps) {
 
   async function finishSignIn() {
     await finishClientSignIn(getFirebaseAuth());
-    router.push("/dashboard");
-    router.refresh();
+    redirectAfterSignIn(locale);
   }
 
   async function handleEmailSignup(e: React.FormEvent) {
@@ -88,7 +59,6 @@ export function SignupForm({ locale }: SignupFormProps) {
       await finishSignIn();
     } catch (err: unknown) {
       setError(resolveAuthError(err, t));
-    } finally {
       setPending(false);
     }
   }
@@ -102,14 +72,14 @@ export function SignupForm({ locale }: SignupFormProps) {
       await finishSignIn();
     } catch (err: unknown) {
       setError(resolveAuthError(err, t));
-    } finally {
       setPending(false);
     }
   }
 
   const serverIssue =
     health && !health.ok
-      ? health.adminInit === "missing_env" || health.adminInit === "invalid_private_key"
+      ? health.adminInit === "missing_env" ||
+        health.adminInit === "invalid_private_key"
         ? t("errors.adminKeyInvalid")
         : health.adminInit === "fetch_failed"
           ? t("errors.networkFailed")
@@ -121,6 +91,12 @@ export function SignupForm({ locale }: SignupFormProps) {
       {serverIssue ? (
         <p className="rounded-lg bg-amber-500/10 px-3 py-2 text-sm text-amber-900 dark:text-amber-200">
           {serverIssue}
+        </p>
+      ) : null}
+
+      {pending && !error ? (
+        <p className="rounded-lg bg-muted px-3 py-2 text-sm text-muted-foreground">
+          {t("signingUp")}
         </p>
       ) : null}
 

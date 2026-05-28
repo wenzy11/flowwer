@@ -2,7 +2,7 @@
 
 import { onAuthStateChanged, type Auth, type User } from "firebase/auth";
 
-export function waitForFirebaseUser(auth: Auth, timeoutMs = 8000): Promise<User> {
+export function waitForFirebaseUser(auth: Auth, timeoutMs = 15000): Promise<User> {
   if (auth.currentUser) return Promise.resolve(auth.currentUser);
 
   return new Promise((resolve, reject) => {

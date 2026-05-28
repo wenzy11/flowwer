@@ -1,12 +1,12 @@
 "use client";
 
-import type { Auth } from "firebase/auth";
+import type { Auth, User } from "firebase/auth";
 
 import { establishServerSession } from "@/lib/auth/session-client";
 import { waitForFirebaseUser } from "@/lib/auth/wait-for-firebase-user";
 
-export async function finishClientSignIn(auth: Auth): Promise<void> {
-  const user = await waitForFirebaseUser(auth);
-  const idToken = await user.getIdToken(true);
+export async function finishClientSignIn(auth: Auth, user?: User): Promise<void> {
+  const resolved = user ?? (await waitForFirebaseUser(auth, 15000));
+  const idToken = await resolved.getIdToken(true);
   await establishServerSession(idToken);
 }

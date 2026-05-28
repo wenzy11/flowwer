@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 import {
@@ -5,7 +6,7 @@ import {
   revokeSessionCookie,
   sessionCookieOptions,
 } from "@/lib/auth/firebase-server";
-import { isFirebaseAdminConfigured } from "@/lib/firebase/admin";
+import { getAdminAuth, isFirebaseAdminConfigured } from "@/lib/firebase/admin";
 
 function classifySessionError(err: unknown): string {
   const msg = err instanceof Error ? err.message : String(err);
@@ -25,7 +26,9 @@ function classifySessionError(err: unknown): string {
   if (
     lower.includes("expired") ||
     lower.includes("id token") ||
-    lower.includes("token")
+    lower.includes("token") ||
+    lower.includes("audience") ||
+    lower.includes("issuer")
   ) {
     return "invalid_token";
   }
@@ -47,17 +50,21 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    const adminAuth = getAdminAuth();
+    await adminAuth.verifyIdToken(idToken, true);
+
     const sessionCookie = await createFirebaseSessionCookie(idToken);
-    const response = NextResponse.json({ success: true });
     const opts = sessionCookieOptions();
-    response.cookies.set(opts.name, sessionCookie, {
+    const cookieStore = await cookies();
+    cookieStore.set(opts.name, sessionCookie, {
       httpOnly: opts.httpOnly,
       secure: opts.secure,
       sameSite: opts.sameSite,
       maxAge: opts.maxAge,
       path: opts.path,
     });
-    return response;
+
+    return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[auth/session]", err);
     const error = classifySessionError(err);
