@@ -1,3 +1,5 @@
+import { sanitizeEnv } from "@/lib/env/sanitize";
+
 export function normalizePrivateKey(raw?: string): string | undefined {
   if (!raw) return undefined;
 
@@ -48,8 +50,8 @@ export function loadAdminCredentialParts(): AdminCredentialParts {
     return { projectId, clientEmail, privateKey };
   }
 
-  const projectId = process.env.FIREBASE_ADMIN_PROJECT_ID?.trim();
-  const clientEmail = process.env.FIREBASE_ADMIN_CLIENT_EMAIL?.trim();
+  const projectId = sanitizeEnv(process.env.FIREBASE_ADMIN_PROJECT_ID);
+  const clientEmail = sanitizeEnv(process.env.FIREBASE_ADMIN_CLIENT_EMAIL);
   const privateKey = normalizePrivateKey(
     process.env.FIREBASE_ADMIN_PRIVATE_KEY
   );

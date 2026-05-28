@@ -50,7 +50,7 @@ Project → Settings → Environment Variables — **Production + Preview** içi
 
 | Değişken | Not |
 |----------|-----|
-| `NEXT_PUBLIC_FIREBASE_*` (6 adet) | `.env.local` ile aynı |
+| `NEXT_PUBLIC_FIREBASE_*` (6 adet) | `.env.local` ile aynı — **satır sonu/newline olmadan** yapıştırın |
 | `FIREBASE_ADMIN_PROJECT_ID` | Service account |
 | `FIREBASE_ADMIN_CLIENT_EMAIL` | Service account |
 | `FIREBASE_ADMIN_PRIVATE_KEY` | Tek satır, `\n` ile satır sonları (tırnak **olmadan** yapıştırın) |
@@ -60,6 +60,8 @@ Project → Settings → Environment Variables — **Production + Preview** içi
 - `FIREBASE_SERVICE_ACCOUNT_JSON` = indirdiğiniz `.json` dosyasının **tam içeriği** (tek satır da olabilir)
 
 Bu durumda `FIREBASE_ADMIN_*` üçlüsü gerekmez.
+
+**Sık hata:** `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` sonunda gizli satır sonu varsa girişte `Illegal url for new iframe` ve URL’de `%0A` görürsünüz. Vercel’de değeri silip tekrar yapıştırın: `quoteflow-b9910.firebaseapp.com` (Enter’a basmayın, sadece yapıştırıp kaydedin).
 
 Deploy sonrası kontrol: `https://SIZIN-VERCEL-URL/api/auth/health`  
 `{"ok":true,"adminInit":"ok"}` dönmeli.
