@@ -2,11 +2,11 @@ import createIntlMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 
 import { SESSION_COOKIE_NAME } from "@/lib/auth/constants";
-import { routing } from "./i18n/routing";
+import { locales, routing } from "./i18n/routing";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-const localePattern = /^\/(en|tr|es|de|fr)(\/|$)/;
+const localePattern = new RegExp(`^/(${locales.join("|")})(/|$)`);
 
 function stripLocale(pathname: string) {
   const match = pathname.match(localePattern);

@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Languages } from "lucide-react";
 
+import { getLocaleLabel } from "@/i18n/locale-labels";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales, type Locale } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,6 @@ import {
 
 export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
   const t = useTranslations("language");
-  const tLocales = useTranslations("locales");
   const locale = useLocale() as Locale;
   const router = useRouter();
   const pathname = usePathname();
@@ -39,10 +39,13 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       >
         <Languages className="size-4" aria-hidden />
         {!compact ? (
-          <span className="hidden sm:inline">{tLocales(locale)}</span>
+          <span className="hidden sm:inline">{getLocaleLabel(locale)}</span>
         ) : null}
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-40">
+      <DropdownMenuContent
+        align="end"
+        className="max-h-[min(20rem,70vh)] min-w-44 overflow-y-auto"
+      >
         <DropdownMenuGroup>
           <DropdownMenuLabel>{t("label")}</DropdownMenuLabel>
           <DropdownMenuRadioGroup
@@ -51,7 +54,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
           >
             {locales.map((code) => (
               <DropdownMenuRadioItem key={code} value={code}>
-                {tLocales(code)}
+                {getLocaleLabel(code)}
               </DropdownMenuRadioItem>
             ))}
           </DropdownMenuRadioGroup>
