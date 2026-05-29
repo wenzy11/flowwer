@@ -42,7 +42,14 @@
     "settingsDescription": "Logo, varsayılanlar ve şirket profili",
     "mainNavigation": "Ana menü",
     "mobileNavigation": "Mobil menü",
-    "createQuote": "Yeni Teklif"
+    "createQuote": "Yeni Teklif",
+    "pro": {
+      "upgradeTitle": "Pro'yu aç",
+      "upgradeHint": "Sınırsız teklif, fatura ve PDF — aylık $14.99'dan",
+      "upgradeCta": "Pro planları",
+      "active": "Aktif üye",
+      "manage": "Faturalandırma"
+    }
   },
   "dashboard": {
     "title": "Ana Sayfa",

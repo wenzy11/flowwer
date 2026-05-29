@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { ProMobileLink } from "@/components/billing/pro-mobile-link";
 import { siteConfig } from "@/config/site";
 
 type AppShellProps = {
@@ -12,7 +13,10 @@ type AppShellProps = {
   userEmail?: string;
 };
 
-export async function AppShell({ children, userEmail }: AppShellProps) {
+export async function AppShell({
+  children,
+  userEmail,
+}: AppShellProps) {
   return (
     <div className="flex min-h-dvh qf-surface">
       <AppSidebar userEmail={userEmail} />
@@ -28,7 +32,10 @@ export async function AppShell({ children, userEmail }: AppShellProps) {
             </span>
             <span className="truncate">{siteConfig.name}</span>
           </Link>
-          <LanguageSwitcher compact />
+          <div className="flex shrink-0 items-center gap-1">
+            <ProMobileLink />
+            <LanguageSwitcher compact />
+          </div>
         </header>
 
         <main className="flex-1 overflow-y-auto pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-8">

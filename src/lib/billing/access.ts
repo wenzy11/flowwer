@@ -12,6 +12,7 @@ export const ONBOARDING_PATHS = [
   "/materials",
   "/clients",
   "/quote-builder",
+  "/subscribe",
 ] as const;
 
 export const BILLING_PATHS = ["/subscribe", "/billing/success"] as const;

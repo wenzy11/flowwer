@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
 import { MainNav } from "@/components/layout/main-nav";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { ProSidebarCard } from "@/components/billing/pro-sidebar-card";
 import { LogoutButton } from "@/components/auth/logout-button";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -45,6 +46,7 @@ export async function AppSidebar({ userEmail }: AppSidebarProps) {
       </nav>
 
       <div className="space-y-3 border-t border-sidebar-border p-4">
+        <ProSidebarCard />
         <Link
           href="/quote-builder"
           className={cn(

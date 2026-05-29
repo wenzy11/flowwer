@@ -42,7 +42,14 @@
     "settingsDescription": "Logo, defaults & business profile",
     "mainNavigation": "Main navigation",
     "mobileNavigation": "Mobile navigation",
-    "createQuote": "New Estimate"
+    "createQuote": "New Estimate",
+    "pro": {
+      "upgradeTitle": "Unlock Pro",
+      "upgradeHint": "Unlimited estimates, invoices & PDFs — from $14.99/mo",
+      "upgradeCta": "View Pro plans",
+      "active": "Active member",
+      "manage": "Manage billing"
+    }
   },
   "dashboard": {
     "title": "Home",

@@ -9,7 +9,9 @@ Tek plan: **Pro** — aylık **$14.99** / yıllık **$99.99**
 3. İki fiyat ekle:
    - Recurring **monthly** — $14.99 USD
    - Recurring **yearly** — $99.99 USD
-4. Product ID'lerini kopyala
+4. Product ID'lerini kopyala (örnek QuoteFlow):
+   - Aylık `QuoteFlow Pro` → `3806864f-b685-42d9-b86b-a612d9f34c74`
+   - Yıllık `QuoteFlow Pro Yearly` → `463f3bd8-5e31-4ce3-9be1-bed91a47b634`
 
 ## Vercel / `.env.local`
 
