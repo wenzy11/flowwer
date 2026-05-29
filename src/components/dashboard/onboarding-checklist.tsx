@@ -41,14 +41,25 @@ export async function OnboardingChecklist({
 
   if (progress.isComplete) {
     return (
-      <section className="qf-card-elevated flex gap-4 border-primary/25 bg-primary/5 p-5">
-        <Sparkles className="size-8 shrink-0 text-primary" aria-hidden />
-        <div>
-          <h2 className="text-base font-semibold">{t("allDoneTitle")}</h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {t("allDoneDescription")}
-          </p>
+      <section className="qf-card-elevated flex flex-col gap-4 border-primary/25 bg-primary/5 p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex gap-4">
+          <Sparkles className="size-8 shrink-0 text-primary" aria-hidden />
+          <div>
+            <h2 className="text-base font-semibold">{t("allDoneTitle")}</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {t("allDoneDescription")}
+            </p>
+          </div>
         </div>
+        <Link
+          href="/subscribe"
+          className={cn(
+            buttonVariants({ size: "lg" }),
+            "h-11 shrink-0 shadow-sm"
+          )}
+        >
+          {t("unlockPro")}
+        </Link>
       </section>
     );
   }

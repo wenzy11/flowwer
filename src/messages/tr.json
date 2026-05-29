@@ -81,7 +81,8 @@
       "optionalSection": "İsteğe bağlı (daha profesyonel belgeler)",
       "optionalBadge": "isteğe bağlı",
       "allDoneTitle": "Kurulum tamam!",
-      "allDoneDescription": "Şirket bilgileriniz, katalog ve teklif akışı hazır. Yeni teklif oluşturup müşteriye gönderebilirsiniz.",
+      "allDoneDescription": "Şirket bilgileriniz, katalog ve teklif akışı hazır. Pro'yu açarak uygulamayı sınırsız kullanın.",
+      "unlockPro": "Pro'ya geç",
       "tasks": {
         "company": {
           "title": "Şirket adınızı yazın",
@@ -649,5 +650,39 @@
     "alreadyDeclined": "Bu teklif reddedildi.",
     "notReady": "Bu teklif henüz yanıt için hazır değil.",
     "poweredBy": "QuoteFlow"
+  },
+  "billing": {
+    "headline": "QuoteFlow Pro'yu açın",
+    "subheadline": "Sınırsız teklif, fatura, PDF ve müşteri paylaşımı — daha fazla iş kazanmak isteyen ustalar için.",
+    "setupCompleteTitle": "Hazırsınız!",
+    "setupCompleteDescription": "İşletme profiliniz ve ilk teklifiniz hazır. Tam uygulama için Pro'yu etkinleştirin.",
+    "earlyAccess": "Pro üyelik",
+    "finishSetupHint": "Önce kontrol panelindeki kurulum adımlarını tamamlayın, sonra buradan abone olun.",
+    "backToSetup": "Kurulum rehberine dön",
+    "proBadge": "Pro plan",
+    "proTitle": "QuoteFlow Pro",
+    "monthly": "Aylık",
+    "yearly": "Yıllık",
+    "perMonth": "ay",
+    "perYear": "yıl",
+    "yearlyEquiv": "Ayda {price} — aylık plana göre tasarruf",
+    "cta": "Güvenli ödemeye devam et",
+    "redirecting": "Ödeme sayfasına yönlendiriliyor…",
+    "secureNote": "Polar ile güvenli ödeme. İstediğiniz zaman iptal edebilirsiniz.",
+    "polarNotConfigured": "Ödeme henüz yapılandırılmadı. Sunucuya Polar env değişkenlerini ekleyin.",
+    "checkoutError": "Ödeme başlatılamadı. Biraz sonra tekrar deneyin.",
+    "features": {
+      "f1": "Sınırsız teklif ve fatura",
+      "f2": "Profesyonel PDF dışa aktarma",
+      "f3": "Müşteri onay linkleri",
+      "f4": "Malzeme kataloğu ve müşteriler",
+      "f5": "20+ dil desteği"
+    },
+    "success": {
+      "title": "Pro'ya hoş geldiniz!",
+      "description": "Ödemeniz alındı. Abonelik onaylandıktan sonra tam erişim birkaç saniye içinde açılır.",
+      "note": "Panel hemen açılmazsa sayfayı yenileyin.",
+      "cta": "Panele git"
+    }
   }
 }

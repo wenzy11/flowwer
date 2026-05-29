@@ -81,7 +81,8 @@
       "optionalSection": "Optional (more professional documents)",
       "optionalBadge": "optional",
       "allDoneTitle": "Setup complete!",
-      "allDoneDescription": "Company info, catalog, and quoting are ready. Create and send your next estimate.",
+      "allDoneDescription": "Company info, catalog, and quoting are ready. Unlock Pro to use QuoteFlow without limits.",
+      "unlockPro": "Get Pro access",
       "tasks": {
         "company": {
           "title": "Enter your company name",
@@ -649,5 +650,39 @@
     "alreadyDeclined": "This estimate was declined.",
     "notReady": "This estimate is not ready for a response yet.",
     "poweredBy": "QuoteFlow"
+  },
+  "billing": {
+    "headline": "Unlock QuoteFlow Pro",
+    "subheadline": "Unlimited estimates, invoices, PDFs, and client sharing — built for contractors who want to win more jobs.",
+    "setupCompleteTitle": "You're all set!",
+    "setupCompleteDescription": "Your business profile and first estimate are ready. Activate Pro to open the full app.",
+    "earlyAccess": "Pro membership",
+    "finishSetupHint": "Complete the setup steps on your dashboard first, then return here to subscribe.",
+    "backToSetup": "Back to setup guide",
+    "proBadge": "Pro plan",
+    "proTitle": "QuoteFlow Pro",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "perMonth": "month",
+    "perYear": "year",
+    "yearlyEquiv": "That's {price} / month — save vs monthly",
+    "cta": "Continue to secure checkout",
+    "redirecting": "Redirecting to checkout…",
+    "secureNote": "Secure payment via Polar. Cancel anytime from your account.",
+    "polarNotConfigured": "Billing is not configured yet. Add Polar env variables on the server.",
+    "checkoutError": "Could not start checkout. Try again in a moment.",
+    "features": {
+      "f1": "Unlimited estimates & invoices",
+      "f2": "Professional PDF export",
+      "f3": "Client approval links",
+      "f4": "Materials catalog & clients",
+      "f5": "Multi-language support"
+    },
+    "success": {
+      "title": "Welcome to Pro!",
+      "description": "Your payment was received. Full access unlocks in a few seconds once we confirm your subscription.",
+      "note": "If the dashboard doesn't open immediately, refresh the page.",
+      "cta": "Go to dashboard"
+    }
   }
 }

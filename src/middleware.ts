@@ -36,7 +36,9 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(login);
   }
 
-  return intlMiddleware(request);
+  const response = intlMiddleware(request);
+  response.headers.set("x-pathname", path);
+  return response;
 }
 
 export const config = {
